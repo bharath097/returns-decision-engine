@@ -4,9 +4,9 @@ import duckdb
 import pandas as pd
 
 from conftest import SMALL, make_root, ROOT
-from recovery_lab.config import Config
-from recovery_lab.data.registry import Registry, RegistryError, check_sql_expr, extra_cost_sql
-from recovery_lab.data.warehouse import build_warehouse
+from returns_decision_engine.config import Config
+from returns_decision_engine.data.registry import Registry, RegistryError, check_sql_expr, extra_cost_sql
+from returns_decision_engine.data.warehouse import build_warehouse
 
 
 def test_registry_loads_and_features_obey_leakage_guard(cfg):
@@ -49,7 +49,7 @@ def test_custom_variable_calculation_and_cost_end_to_end(tmp_path):
     """The extension story: add a derived variable, a CSV variable, a calculation and a cost line without touching code."""
     root = make_root(tmp_path)
     shutil.copytree(ROOT / "data" / "raw", root / "data" / "raw", dirs_exist_ok=True) if (ROOT / "data" / "raw" / "raw_items.parquet").exists() else None
-    from recovery_lab.sim.generate import write_raw
+    from returns_decision_engine.sim.generate import write_raw
     cfg0 = Config(SMALL, root=root); write_raw(cfg0)
     base = build_warehouse(cfg0, verbose=False)
     cm0 = base["con"].execute("select sum(contribution_margin) from mart_item where status='closed'").fetchone()[0]
@@ -73,7 +73,7 @@ def test_custom_variable_calculation_and_cost_end_to_end(tmp_path):
     cm1 = con.execute("select sum(contribution_margin) from mart_item where status='closed'").fetchone()[0]
     assert abs((cm0 - cm1) - 0.5 * n_closed) < 1.0       # the cost line flows into margin exactly
     assert "price_per_weight" in Registry(cfg).all_feature_names("recovery")
-    from recovery_lab.data.registry import run_calculations
+    from returns_decision_engine.data.registry import run_calculations
     calc = run_calculations(con, cfg)
     assert "my_margin_pct" in set(calc.calculation)
     assert (w["tests"].status == "FAIL").sum() == 0

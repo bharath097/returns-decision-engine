@@ -1,0 +1,7 @@
+site_builder/img/
+site_builder/project/
+site_builder/standalone/
+site_builder/parts_*.html
+site_builder/data.json
+site_builder/vars.json
+models/*.joblib

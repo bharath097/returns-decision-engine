@@ -1,6 +1,6 @@
 import numpy as np
 
-from recovery_lab.data.warehouse import reconciliation
+from returns_decision_engine.data.warehouse import reconciliation
 
 
 def test_sql_data_quality_tests_pass(warehouse):

@@ -1,16 +1,16 @@
 import numpy as np
 import pytest
 
-from recovery_lab.data.registry import Registry
-from recovery_lab.metrics.clarify import MetricLayer, parse_period
-from recovery_lab.models import recovery as R, monitor as MON
+from returns_decision_engine.data.registry import Registry
+from returns_decision_engine.metrics.clarify import MetricLayer, parse_period
+from returns_decision_engine.models import recovery as R, monitor as MON
 from datetime import date
 
 
 @pytest.fixture(scope="module")
 def fitted(warehouse, small_root):
     from conftest import SMALL
-    from recovery_lab.config import Config
+    from returns_decision_engine.config import Config
     cfg = Config(SMALL, root=small_root); reg = Registry(cfg)
     cfg.settings["splits"]["train_end"] = "2025-09-30"; cfg.settings["splits"]["calibration_end"] = "2025-12-31"
     df = R.load_auction_items(warehouse["con"])

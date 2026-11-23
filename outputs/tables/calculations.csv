@@ -65,6 +65,13 @@ category,items_open,Gaming,30.0,int,Items still listed (outcome not final)
 channel,items_open,fixed_price,429.0,int,Items still listed (outcome not final)
 channel,items_open,auction,205.0,int,Items still listed (outcome not final)
 overall,sell_through,ALL,0.8389219161643608,pct,Share of closed items that sold
+category,sell_through,Tools,0.9313093622795116,pct,Share of closed items that sold
+category,sell_through,Home_decor,0.7440600978336828,pct,Share of closed items that sold
+category,sell_through,Low_value_bundles,0.5147086733725564,pct,Share of closed items that sold
+category,sell_through,Large_appliances,0.7819654808030997,pct,Share of closed items that sold
+category,sell_through,Audio_wearables,0.9350054924935921,pct,Share of closed items that sold
+category,sell_through,Furniture,0.6955371900826446,pct,Share of closed items that sold
+category,sell_through,Laptops_current,0.9524071526822558,pct,Share of closed items that sold
 category,sell_through,Toys_games,0.839957604663487,pct,Share of closed items that sold
 category,sell_through,Gaming,0.9387194284143996,pct,Share of closed items that sold
 category,sell_through,Small_appliances,0.9029884367022075,pct,Share of closed items that sold
@@ -73,13 +80,6 @@ category,sell_through,TVs,0.9227300676368109,pct,Share of closed items that sold
 category,sell_through,Apparel_shoes,0.8138439236530562,pct,Share of closed items that sold
 category,sell_through,Beauty_health,0.8702025586353944,pct,Share of closed items that sold
 category,sell_through,Laptops_older,0.7946336429308566,pct,Share of closed items that sold
-category,sell_through,Tools,0.9313093622795116,pct,Share of closed items that sold
-category,sell_through,Home_decor,0.7440600978336828,pct,Share of closed items that sold
-category,sell_through,Low_value_bundles,0.5147086733725564,pct,Share of closed items that sold
-category,sell_through,Large_appliances,0.7819654808030997,pct,Share of closed items that sold
-category,sell_through,Audio_wearables,0.9350054924935921,pct,Share of closed items that sold
-category,sell_through,Furniture,0.6955371900826446,pct,Share of closed items that sold
-category,sell_through,Laptops_current,0.9524071526822558,pct,Share of closed items that sold
 source_type,sell_through,broker_liquidation,0.7538547408079258,pct,Share of closed items that sold
 source_type,sell_through,ecommerce_returns,0.8401436910642119,pct,Share of closed items that sold
 source_type,sell_through,big_box_returns,0.8615769602247783,pct,Share of closed items that sold
@@ -135,13 +135,6 @@ source_type,gross_recovery_on_sold,overstock_closeout,0.5827116584688278,pct,"Sa
 channel,gross_recovery_on_sold,auction,0.4744644587026248,pct,"Sale price / retail value, sold items only (the survivor view)"
 channel,gross_recovery_on_sold,fixed_price,0.4532097132903788,pct,"Sale price / retail value, sold items only (the survivor view)"
 overall,gross_recovery_all_listed,ALL,0.4143463926523375,pct,"Sale price / retail value over ALL closed items, zeros included"
-category,gross_recovery_all_listed,Tools,0.5211210396468885,pct,"Sale price / retail value over ALL closed items, zeros included"
-category,gross_recovery_all_listed,Home_decor,0.23219131096828088,pct,"Sale price / retail value over ALL closed items, zeros included"
-category,gross_recovery_all_listed,Low_value_bundles,0.09119036322088075,pct,"Sale price / retail value over ALL closed items, zeros included"
-category,gross_recovery_all_listed,Large_appliances,0.3470010666064551,pct,"Sale price / retail value over ALL closed items, zeros included"
-category,gross_recovery_all_listed,Audio_wearables,0.4355860997228784,pct,"Sale price / retail value over ALL closed items, zeros included"
-category,gross_recovery_all_listed,Furniture,0.2012148314916263,pct,"Sale price / retail value over ALL closed items, zeros included"
-category,gross_recovery_all_listed,Laptops_current,0.49589737678077717,pct,"Sale price / retail value over ALL closed items, zeros included"
 category,gross_recovery_all_listed,Toys_games,0.31737211641813706,pct,"Sale price / retail value over ALL closed items, zeros included"
 category,gross_recovery_all_listed,Gaming,0.48957965029437855,pct,"Sale price / retail value over ALL closed items, zeros included"
 category,gross_recovery_all_listed,Small_appliances,0.4524895281087055,pct,"Sale price / retail value over ALL closed items, zeros included"
@@ -150,6 +143,13 @@ category,gross_recovery_all_listed,TVs,0.4368513154568205,pct,"Sale price / reta
 category,gross_recovery_all_listed,Apparel_shoes,0.29545464963619833,pct,"Sale price / retail value over ALL closed items, zeros included"
 category,gross_recovery_all_listed,Beauty_health,0.34606508792878077,pct,"Sale price / retail value over ALL closed items, zeros included"
 category,gross_recovery_all_listed,Laptops_older,0.2614261296793118,pct,"Sale price / retail value over ALL closed items, zeros included"
+category,gross_recovery_all_listed,Tools,0.5211210396468885,pct,"Sale price / retail value over ALL closed items, zeros included"
+category,gross_recovery_all_listed,Home_decor,0.23219131096828088,pct,"Sale price / retail value over ALL closed items, zeros included"
+category,gross_recovery_all_listed,Low_value_bundles,0.09119036322088075,pct,"Sale price / retail value over ALL closed items, zeros included"
+category,gross_recovery_all_listed,Large_appliances,0.3470010666064551,pct,"Sale price / retail value over ALL closed items, zeros included"
+category,gross_recovery_all_listed,Audio_wearables,0.4355860997228784,pct,"Sale price / retail value over ALL closed items, zeros included"
+category,gross_recovery_all_listed,Furniture,0.2012148314916263,pct,"Sale price / retail value over ALL closed items, zeros included"
+category,gross_recovery_all_listed,Laptops_current,0.49589737678077717,pct,"Sale price / retail value over ALL closed items, zeros included"
 source_type,gross_recovery_all_listed,broker_liquidation,0.31911155644276845,pct,"Sale price / retail value over ALL closed items, zeros included"
 source_type,gross_recovery_all_listed,ecommerce_returns,0.38640800915189766,pct,"Sale price / retail value over ALL closed items, zeros included"
 source_type,gross_recovery_all_listed,big_box_returns,0.43317142734103414,pct,"Sale price / retail value over ALL closed items, zeros included"
@@ -361,18 +361,6 @@ source,contribution_margin_total,S002,7419.335041172611,usd,Final net value minu
 source,contribution_margin_total,S029,1651.0984916834718,usd,Final net value minus allocated lot price and freight
 source,contribution_margin_total,S030,3830.1205278376087,usd,Final net value minus allocated lot price and freight
 source,contribution_margin_total,S032,41364.12366760984,usd,Final net value minus allocated lot price and freight
-month,contribution_margin_total,2024-11,30602.273026411964,usd,Final net value minus allocated lot price and freight
-month,contribution_margin_total,2024-12,42046.791948857186,usd,Final net value minus allocated lot price and freight
-month,contribution_margin_total,2025-01,22359.129119043842,usd,Final net value minus allocated lot price and freight
-month,contribution_margin_total,2025-03,36713.24051378241,usd,Final net value minus allocated lot price and freight
-month,contribution_margin_total,2025-05,18814.14934493151,usd,Final net value minus allocated lot price and freight
-month,contribution_margin_total,2025-06,34755.82745495447,usd,Final net value minus allocated lot price and freight
-month,contribution_margin_total,2025-08,23771.866699140643,usd,Final net value minus allocated lot price and freight
-month,contribution_margin_total,2025-09,36840.69534800209,usd,Final net value minus allocated lot price and freight
-month,contribution_margin_total,2025-12,43897.52918130826,usd,Final net value minus allocated lot price and freight
-month,contribution_margin_total,2026-06,49992.39405165052,usd,Final net value minus allocated lot price and freight
-month,contribution_margin_total,2026-07,33252.54691597415,usd,Final net value minus allocated lot price and freight
-month,contribution_margin_total,2026-08,31932.781991921773,usd,Final net value minus allocated lot price and freight
 month,contribution_margin_total,2025-02,36273.64743836896,usd,Final net value minus allocated lot price and freight
 month,contribution_margin_total,2025-04,24722.731634997628,usd,Final net value minus allocated lot price and freight
 month,contribution_margin_total,2025-07,24740.69759164155,usd,Final net value minus allocated lot price and freight
@@ -385,6 +373,18 @@ month,contribution_margin_total,2026-04,27169.060820051964,usd,Final net value m
 month,contribution_margin_total,2026-05,49295.98745695051,usd,Final net value minus allocated lot price and freight
 month,contribution_margin_total,2026-09,34095.72833812167,usd,Final net value minus allocated lot price and freight
 month,contribution_margin_total,2026-10,23693.680445090242,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2024-11,30602.273026411964,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2024-12,42046.791948857186,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2025-01,22359.129119043842,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2025-03,36713.24051378241,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2025-05,18814.14934493151,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2025-06,34755.82745495447,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2025-08,23771.866699140643,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2025-09,36840.69534800209,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2025-12,43897.52918130826,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2026-06,49992.39405165052,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2026-07,33252.54691597415,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2026-08,31932.781991921773,usd,Final net value minus allocated lot price and freight
 overall,profit_per_retail_dollar,ALL,0.045341392218483344,pct,Contribution margin / retail value
 category,profit_per_retail_dollar,Tools,0.03675189284780742,pct,Contribution margin / retail value
 category,profit_per_retail_dollar,Home_decor,-0.33297339426086936,pct,Contribution margin / retail value

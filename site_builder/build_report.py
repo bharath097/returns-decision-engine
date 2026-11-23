@@ -19,7 +19,7 @@ import pandas as pd
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.insert(0, os.path.join(ROOT, "src"))
-from recovery_lab.decisions.channel import breakeven_p, expected_value_fixed_first, wilson_ci  # noqa: E402
+from returns_decision_engine.decisions.channel import breakeven_p, expected_value_fixed_first, wilson_ci  # noqa: E402
 
 TB = os.path.join(ROOT, "outputs", "tables")
 T = lambda n: pd.read_csv(os.path.join(TB, n + ".csv"))  # noqa: E731
@@ -370,13 +370,13 @@ code{font:13px ui-monospace,Menlo,Consolas,monospace;background:#eef0f2;padding:
 app = f"""<section id="app"><div class="kicker">In the repository</div><h2>Where everything lives, and how to run it</h2>
 <p>The full interactive explorer (scenario sliders, playbook with CSV upload, variable registry, calculation notes, pipeline page) is kept at <a href="explorer.html">explorer.html</a>. Every table behind the numbers above is in <code>outputs/tables</code> ({len(os.listdir(TB))} files) and every chart in <code>outputs/figures</code>.</p>
 <table class="plain"><thead><tr><th>Piece</th><th>Where</th></tr></thead><tbody>
-<tr><td>Simulator with known truth</td><td><code>src/recovery_lab/sim</code>, <code>config/simulation.yaml</code></td></tr>
-<tr><td>Warehouse and 15 data checks</td><td><code>src/recovery_lab/data</code>, <code>sql/</code></td></tr>
-<tr><td>Models</td><td><code>src/recovery_lab/models</code> (recovery, hazard, uplift, match, lot, monitor)</td></tr>
-<tr><td>Decisions</td><td><code>src/recovery_lab/decisions</code> (waiting, effort, scorecard, bid ceiling, impact)</td></tr>
-<tr><td>Decision engine and lever ladder</td><td><code>src/recovery_lab/engine.py</code></td></tr>
-<tr><td>Metric layer</td><td><code>src/recovery_lab/metrics</code>, <code>config/metric_definitions.yaml</code></td></tr>
-<tr><td>Pipeline, gate, manifest</td><td><code>src/recovery_lab/pipeline.py</code>, <code>outputs/run_manifest.json</code>, <code>outputs/run_history.csv</code>, <code>models/</code></td></tr>
+<tr><td>Simulator with known truth</td><td><code>src/returns_decision_engine/sim</code>, <code>config/simulation.yaml</code></td></tr>
+<tr><td>Warehouse and 15 data checks</td><td><code>src/returns_decision_engine/data</code>, <code>sql/</code></td></tr>
+<tr><td>Models</td><td><code>src/returns_decision_engine/models</code> (recovery, hazard, uplift, match, lot, monitor)</td></tr>
+<tr><td>Decisions</td><td><code>src/returns_decision_engine/decisions</code> (waiting, effort, scorecard, bid ceiling, impact)</td></tr>
+<tr><td>Decision engine and lever ladder</td><td><code>src/returns_decision_engine/engine.py</code></td></tr>
+<tr><td>Metric layer</td><td><code>src/returns_decision_engine/metrics</code>, <code>config/metric_definitions.yaml</code></td></tr>
+<tr><td>Pipeline, gate, manifest</td><td><code>src/returns_decision_engine/pipeline.py</code>, <code>outputs/run_manifest.json</code>, <code>outputs/run_history.csv</code>, <code>models/</code></td></tr>
 <tr><td>Run everything</td><td><code>make all</code>, then <code>python site_builder/build_report.py</code>; the same runs weekly in GitHub Actions</td></tr></tbody></table>
 <p>Data dictionary: <code>docs/DATA_DICTIONARY.md</code>. How to extend with your own data: <code>docs/EXTENDING.md</code>.</p></section>"""
 
@@ -394,7 +394,10 @@ how = f"""<section id="how"><div class="kicker">How it works</div><h2>One pipeli
 <p>Raw files go into a SQL warehouse. A set of data tests runs on it, and <b>if any error-level test fails, the run stops</b>: nothing downstream is trusted on bad data. After that each stage answers one question, hands what it learned to the next, and writes its tables to <code>outputs/tables</code>. The last stages combine everything into per-item decisions and a dollar value for each lever, then monitor the models and answer report requests.</p>
 <table class="plain"><thead><tr><th>Stage</th><th>What it answers</th><th>Method</th><th>Tables</th><th>Time</th></tr></thead><tbody>{how_rows}</tbody></table>
 <p>Five stages train models and a sixth combines them; each model feeds a decision. The rest are statistics and arithmetic, kept simple where a model would add nothing.</p></section>"""
-what = """<section id="what" style="border-top:0;padding-top:0"><div class="kicker">What this is</div><h2>A decision system for a marketplace that sells returned and overstock goods</h2>
+tryit = """<section id="try" style="border-top:0;padding-top:0"><div class="kicker">Interactive tool</div><h2>Change the price, the premium or the cost, and see the break-even move</h2>
+<p>The pages below describe what the models found. <a href="explorer.html"><b>The interactive tool</b></a> lets you work with the same numbers: set the premium you would charge and the cost of waiting to see the break-even sale rate, build what-if scenarios (prices, demand, labor, freight), and load your own category totals from a CSV to get buy-more, raise-price or cut-back recommendations. It runs in the browser on the pipeline's fitted results, so it refreshes whenever the pipeline runs.</p>
+<p><a href="explorer.html" style="display:inline-block;background:#1f5fa8;color:#fff;padding:9px 16px;border-radius:5px;font:600 14px -apple-system,Arial,sans-serif;text-decoration:none">Open the interactive tool</a></p></section>"""
+what = """<section id="what"><div class="kicker">What this is</div><h2>A decision system for a marketplace that sells returned and overstock goods</h2>
 <p>The business buys returns and overstock by the truckload, opens them, matches each item to a catalog entry, photographs and grades it, and sells it by auction or at a fixed price. The measure that matters is <b>recovery</b>: what an item sold for divided by what it would have cost new, with unsold items counted as zero.</p>
 <p>This project builds the analytics layer for that business. It predicts what each item will recover, decides how to list it, where labor is worth spending, and which truckloads to bid on. It answers report requests from governed definitions. And it prices every one of those decisions in dollars per month, with an honest statement of how well each number is known.</p></section>
 <section id="problem" style="border-top:0;padding-top:20px"><div class="kicker">The problem</div><h2>Five things make this hard</h2>
@@ -406,14 +409,15 @@ trust = f"""<section id="trust"><div class="kicker">Why trust it</div><h2>How th
 <p><b>Runs are reproducible and traceable.</b> Two runs on the same data and configuration give the same numbers. Every run writes <code>run_manifest.json</code> (data fingerprint <code>{man['raw_data_hash']}</code>, configuration fingerprint <code>{man['config_hash']}</code>, rows per table, seconds and tables per stage, models saved) and appends to <code>run_history.csv</code>. Trained models are saved as artifacts and described in a model card.</p></section>"""
 limits = """<section id="limits"><div class="kicker">Limits</div><h2>What it cannot tell you</h2>
 <p>All numbers come from simulated data, so they demonstrate a method and say nothing about any real business. Within that: the markdown gain below the tested price range, the item-level routing gain and the counter-offer gain are not established. A category effect whose interval includes zero is not an effect. Levers overlap, so their dollar values must not be added. Anything the data cannot show, such as how often a seller accepts a counter-offer, is flagged as an assumption in the section where it matters.</p></section>"""
-nav = [("what", "What this is"), ("problem", "The problem"), ("how", "How it works"), ("found", "What it found"), ("s1", "&nbsp;&nbsp;Judging a pilot"), ("s2", "&nbsp;&nbsp;Predicting recovery"),
+nav = [("try", "Try it: interactive tool"), ("what", "What this is"), ("problem", "The problem"), ("how", "How it works"), ("found", "What it found"), ("s1", "&nbsp;&nbsp;Judging a pilot"), ("s2", "&nbsp;&nbsp;Predicting recovery"),
        ("s3", "&nbsp;&nbsp;Choosing a channel"), ("s4", "&nbsp;&nbsp;Waiting and markdown"), ("s5", "&nbsp;&nbsp;Labor"), ("s6", "&nbsp;&nbsp;Truckloads"), ("s7", "&nbsp;&nbsp;Report requests"),
        ("s8", "&nbsp;&nbsp;Putting it together"), ("s9", "&nbsp;&nbsp;After launch"), ("trust", "Why trust it"), ("limits", "What it cannot tell you"), ("app", "In the repository")]
-page = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Recovery Lab: a decision system for returns inventory</title><style>{css}</style></head><body>
-<nav><div class="t">Recovery Lab</div>{''.join(f'<a href="#{i}">{t}</a>' for i, t in nav)}</nav>
-<main><h1>Recovery Lab</h1>
+page = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Returns Decision Engine: a decision system for returns inventory</title><style>{css}</style></head><body>
+<nav><div class="t">Returns Decision Engine</div>{''.join(f'<a href="#{i}">{t}</a>' for i, t in nav)}</nav>
+<main><h1>Returns Decision Engine</h1>
 <p class="sub">Models, decisions and a pipeline for a business that sells returned goods: what each item will recover, how to list it, where labor pays, what a truckload is worth, and what each decision is worth in dollars.</p>
 <div class="banner"><b>All data is simulated</b> with known ground truth, so each method can be checked against the truth it tries to recover. Read the numbers as a test of method, not as facts about any real company.</div>
+{tryit}
 {what}
 {how}
 {found_head}{headline}<p>Each finding below is laid out the same way: the question, how it was looked at and whether ML was used, what the data shows, and what to do about it.</p></section>
@@ -424,3 +428,12 @@ out = os.path.join(ROOT, "docs", "site", "index.html")
 os.makedirs(os.path.dirname(out), exist_ok=True)
 open(out, "w").write(page)
 print("wrote", out, f"{len(page) / 1e6:.2f} MB")
+
+# keep the explorer linked back to this page (idempotent; the explorer is built by build_site.py)
+ex = os.path.join(ROOT, "docs", "site", "explorer.html")
+if os.path.exists(ex):
+    t = open(ex).read()
+    if 'id="homeLink"' not in t:
+        link = ('<a id="homeLink" href="index.html" style="position:fixed;right:14px;bottom:14px;z-index:9999;background:#fff;border:1px solid #d9d1c3;border-radius:6px;'
+                'padding:7px 12px;font:600 13px -apple-system,Arial,sans-serif;color:#1d2127;text-decoration:none;box-shadow:0 1px 4px rgba(0,0,0,.12)">&larr; Project home</a>')
+        open(ex, "w").write(t.replace("<body>", "<body>" + link, 1))

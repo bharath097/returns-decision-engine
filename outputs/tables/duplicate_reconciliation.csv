@@ -4,5 +4,5 @@ distinct lots,800.0
 raw item rows,74230.0
 distinct items,73133.0
 "lot price total, raw (every duplicate row)",5019237.719999997
-"lot price total, de-duplicated (used)",4830870.0100000035
-overstatement of lot cost if duplicates are not removed (%),3.899250230498197
+"lot price total, de-duplicated (used)",4830870.010000001
+overstatement of lot cost if duplicates are not removed (%),3.8992502304982635

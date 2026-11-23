@@ -113,17 +113,17 @@ how=wrap("how","How it works, and why","Every module: what it does, why it exist
 
 pipe=wrap("pipe","Pipeline: how it runs, and how to update it","The stages, the automatic weekly run, a table of what to edit for each kind of change, and what breaks if you skip a step.",content.pipeline())
 
-NAV=f'''<div style="background:#0e1420;color:#e4e8ea;display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center;justify-content:space-between;padding:14px 48px;{M};font-size:15px"><div style="display:flex;gap:14px;align-items:baseline"><span style="font-family:'Big Shoulders Display',Impact,sans-serif;font-weight:800;font-size:24px">Recovery Lab</span><span style="opacity:.75">a worked example for a liquidation-auction business</span></div><div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap"><span style="opacity:.8">Results from the run of {content.F["built_at"]}</span><span style="background:#ffd400;color:#0e1420;padding:3px 10px;font-weight:700;border-radius:4px">Simulated data</span></div></div>'''
+NAV=f'''<div style="background:#0e1420;color:#e4e8ea;display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center;justify-content:space-between;padding:14px 48px;{M};font-size:15px"><div style="display:flex;gap:14px;align-items:baseline"><span style="font-family:'Big Shoulders Display',Impact,sans-serif;font-weight:800;font-size:24px">Returns Decision Engine</span><span style="opacity:.75">a worked example for a liquidation-auction business</span></div><div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap"><span style="opacity:.8">Results from the run of {content.F["built_at"]}</span><span style="background:#ffd400;color:#0e1420;padding:3px 10px;font-weight:700;border-radius:4px">Simulated data</span></div></div>'''
 def cond(k,body): return f'<sc-if value="{{{{show.{k}}}}}" hint-placeholder-val="{{{{ {"true" if k=="start" else "false"} }}}}">{body}</sc-if>'
 page=NAV+tabbar+cond("start",start)+cond("findings",findings)+cond("play",play)+cond("scen",scen)+cond("recs",recs)+cond("how",how)+cond("variables",variables)+cond("calcs",calcs)+cond("pipe",pipe)
-foot=f'<div style="background:#0e1420;color:#e4e8ea;padding:26px 48px;border-top:4px solid #ff4a12"><div style="max-width:1344px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px 40px;justify-content:space-between;{M};font-size:14.5px"><div>Recovery Lab. All data simulated; settings are placeholders.</div><div style="opacity:.8">Refresh: make all, make test, python site_builder/build_site.py (or the weekly GitHub run)</div></div></div>'
+foot=f'<div style="background:#0e1420;color:#e4e8ea;padding:26px 48px;border-top:4px solid #ff4a12"><div style="max-width:1344px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px 40px;justify-content:space-between;{M};font-size:14.5px"><div>Returns Decision Engine. All data simulated; settings are placeholders.</div><div style="opacity:.8">Refresh: make all, make test, python site_builder/build_site.py (or the weekly GitHub run)</div></div></div>'
 
 JS=open('logic.js').read().replace('__CHARTS__',charts).replace('__DATA__',DATA).replace('__VARS__',VARS).replace('__FACTS__',open('facts.json').read())
 html=f'''<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Recovery Lab</title>
+<title>Returns Decision Engine</title>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -177,6 +177,6 @@ input,select,textarea{border-radius:6px}
 .dark [style*="color:#17645f"]{color:#7fd1c8 !important}
 </style>""",1)
 open('project/Main.dc.html','w').write(html)
-canvas={"v":3,"createdOnFiles":{"v":1,"at":"2026-11-22T18:50:00Z"},"title":"Recovery Lab","launch":{"view":"focused","file":"Main.dc.html"},"pages":[],"boards":{"Main.dc.html":{"x":0,"y":0,"w":1440,"h":12000,"title":"Recovery Lab","expand":"fill","is_interactive":True}},"order":["Main.dc.html"],"notes":{},"designSystems":[]}
+canvas={"v":3,"createdOnFiles":{"v":1,"at":"2026-11-22T18:50:00Z"},"title":"Returns Decision Engine","launch":{"view":"focused","file":"Main.dc.html"},"pages":[],"boards":{"Main.dc.html":{"x":0,"y":0,"w":1440,"h":12000,"title":"Returns Decision Engine","expand":"fill","is_interactive":True}},"order":["Main.dc.html"],"notes":{},"designSystems":[]}
 json.dump(canvas,open('project/canvas.json','w'),indent=1)
 print(len(html))

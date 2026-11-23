@@ -4,7 +4,7 @@
 #  clearly-labeled placeholders. Change them here; nothing is hard-coded.
 # =====================================================================
 project:
-  name: "Recovery Lab"
+  name: "Returns Decision Engine"
   data_banner: "SIMULATED DATA - NOT BUYWANDER DATA. All figures are illustrative."
 paths:
   raw_dir: data/raw

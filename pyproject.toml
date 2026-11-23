@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "returns-decision-engine"
+version = "1.0.0"
+description = "Recovery-rate modelling, pricing, sourcing and metric layer for liquidation auctions (simulated data)"
+requires-python = ">=3.10"
+dependencies = ["numpy", "pandas", "duckdb", "pyarrow", "scikit-learn", "lightgbm", "lifelines", "statsmodels", "scipy", "matplotlib", "pyyaml", "pytest"]
+
+[project.scripts]
+returns-decision-engine = "returns_decision_engine.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

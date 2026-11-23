@@ -1,8 +1,8 @@
 import numpy as np
 import pandas as pd
 
-from recovery_lab.decisions import channel as C, waiting as W
-from recovery_lab.decisions.utils import eb_shrink
+from returns_decision_engine.decisions import channel as C, waiting as W
+from returns_decision_engine.decisions.utils import eb_shrink
 
 
 def test_wilson_five_item_example():
@@ -47,6 +47,6 @@ def test_eb_shrink_moves_toward_pool():
 
 
 def test_sampling_value_gain_grows_with_sample():
-    from recovery_lab.decisions.bid_ceiling import value_of_sampling
+    from returns_decision_engine.decisions.bid_ceiling import value_of_sampling
     v = value_of_sampling(100, 10000, 0.05, 0.8, 0.12, 3.0, 0.62, (5, 20, 50))
     assert v.ceiling_gain.is_monotonic_increasing

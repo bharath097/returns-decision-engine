@@ -1,4 +1,4 @@
-# Recovery Lab: results
+# Returns Decision Engine: results
 
 > **All data in this project is SIMULATED** (`config/simulation.yaml`, seed fixed) with known ground truth, so every method is checked against the truth it is trying to recover. Parameters are placeholders. Nothing here describes any real company, and no number should be quoted as a real result.
 

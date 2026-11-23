@@ -1,0 +1,177 @@
+{
+  "run_at_utc": "2026-11-23T19:04:52Z",
+  "git_sha": "local",
+  "config_hash": "4bdc7b1df83a78cf",
+  "raw_data_hash": "ad25eede08a37ed8",
+  "warehouse_rows": {
+    "mart_item": 73133,
+    "mart_lot": 800
+  },
+  "stages": [
+    {
+      "name": "warehouse",
+      "seconds": 6.4,
+      "tables": [
+        "calculations",
+        "data_profile",
+        "data_quality_tests",
+        "duplicate_reconciliation",
+        "variable_registry"
+      ],
+      "purpose": "Build the warehouse from raw files, run the data tests, stop if any error-severity test fails"
+    },
+    {
+      "name": "recovery_model",
+      "seconds": 69.4,
+      "tables": [
+        "interval_coverage_by_category",
+        "recovery_calibration",
+        "recovery_error_by_category",
+        "recovery_error_by_condition",
+        "recovery_error_by_source_type",
+        "recovery_feature_importance",
+        "recovery_grouped_cv",
+        "recovery_intervals_sample",
+        "recovery_metrics"
+      ],
+      "purpose": "Predict recovery (sale price / retail value, zeros included) for an item before it is listed",
+      "needs": "mart_item (auction items)"
+    },
+    {
+      "name": "anchor_impact",
+      "seconds": 3.6,
+      "tables": [
+        "pricing_anchor_impact"
+      ],
+      "purpose": "Turn the recovery estimate into dollars: what is a better price anchor worth?",
+      "needs": "recovery model, fixed-price items with hidden truth"
+    },
+    {
+      "name": "sale_timing",
+      "seconds": 26.8,
+      "tables": [
+        "hazard_calibration",
+        "km_by_premium",
+        "sale_curves_by_premium"
+      ],
+      "purpose": "How fast does a fixed-price item sell at each price? (discrete-time hazard model)",
+      "needs": "fixed-price items from the randomized pilot"
+    },
+    {
+      "name": "channel_and_waiting",
+      "seconds": 11.1,
+      "tables": [
+        "breakeven_table",
+        "pilot_ate",
+        "pilot_ate_by_category",
+        "pilot_balance",
+        "pilot_premium_table",
+        "policy_comparison",
+        "required_sample",
+        "uplift_calibration",
+        "waiting_category_inputs",
+        "waiting_hazard_params",
+        "waiting_policy_results",
+        "waiting_schedules",
+        "zero_problem_three_views"
+      ],
+      "purpose": "Auction or fixed price? Which items? How long to wait and at what price?",
+      "needs": "randomized pilot, hazard model"
+    },
+    {
+      "name": "effort_rule",
+      "seconds": 0.1,
+      "tables": [
+        "min_item_value",
+        "net_value_by_category_band",
+        "photo_effects_by_category",
+        "photo_rule_by_band"
+      ],
+      "purpose": "Where is extra labor (photos) worth the minutes?",
+      "needs": "randomized photo experiment"
+    },
+    {
+      "name": "sources_and_lots",
+      "seconds": 14.5,
+      "tables": [
+        "bid_backtest",
+        "bid_sweep",
+        "lot_oof_predictions",
+        "sampling_value",
+        "source_scorecard"
+      ],
+      "purpose": "Score sources, predict a truckload's value before opening it, set a bid ceiling",
+      "needs": "lot-level mart, items by lot"
+    },
+    {
+      "name": "match_quality",
+      "seconds": 5.0,
+      "tables": [
+        "match_review_gain"
+      ],
+      "purpose": "Which catalog matches are probably wrong? (ranks the audit queue)",
+      "needs": "audited items"
+    },
+    {
+      "name": "decision_engine",
+      "seconds": 13.7,
+      "tables": [
+        "intake_cards",
+        "value_levers"
+      ],
+      "purpose": "Run every model on an item and price each lever in dollars per month",
+      "needs": "all models above"
+    },
+    {
+      "name": "monitoring",
+      "seconds": 0.1,
+      "tables": [
+        "drift_psi",
+        "monthly_performance"
+      ],
+      "purpose": "Has the world moved? Drift in inputs, error by month, retrain rule, model card",
+      "needs": "recovery model, recent items"
+    },
+    {
+      "name": "metric_layer",
+      "seconds": 0.0,
+      "tables": [
+        "ambiguity_log",
+        "metric_layer_examples"
+      ],
+      "purpose": "Answer report requests from governed metric definitions; ask before guessing",
+      "needs": "metric_definitions.yaml, warehouse"
+    }
+  ],
+  "models_saved": {
+    "recovery": {
+      "file": "models/recovery.joblib",
+      "bytes": 6328411
+    },
+    "sale_timing": {
+      "file": "models/sale_timing.joblib",
+      "bytes": 1241688
+    },
+    "match": {
+      "file": "models/match.joblib",
+      "bytes": 438276
+    }
+  },
+  "headline": {
+    "recovery_mae": 0.16909748062430718,
+    "incumbent_mae": 0.18748356153179016,
+    "recovery_total_error_pct": -0.02513275023508932,
+    "auc_sold": 0.8208207265707267,
+    "interval_coverage": 0.7891798759476223,
+    "pilot_effect_per_retail_dollar": -0.012525418971905067,
+    "lever_anchor_per_month": 1529.648992462215,
+    "lever_routing_per_month": 11958.336125567166,
+    "lever_markdown_per_month": 2752.4838060960838,
+    "lever_photo_per_month": 10234.569220612886,
+    "retrain_recommended": true,
+    "dq_errors": 0,
+    "dq_warnings": 2
+  },
+  "tables_written": 47,
+  "total_seconds": 150.7
+}

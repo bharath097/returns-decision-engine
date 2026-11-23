@@ -1,4 +1,4 @@
-# Extending Recovery Lab
+# Extending Returns Decision Engine
 
 Everything below is configuration. No Python changes are needed, and each recipe is covered by a test
 (`tests/test_registry_and_extension.py`).
@@ -66,7 +66,7 @@ Costs flow into `final_net_value`, `contribution_margin`, the uplift outcome, th
 
 ## 6. Use real data instead of the simulator
 
-Place parquet or CSV-converted extracts in `data/raw/` named `raw_sources, raw_lots, raw_items, raw_outcomes` (and `raw_item_audit` if you have audited matches), with the same columns (see `docs/DATA_DICTIONARY.md` and `src/recovery_lab/sim/generate.py` for the exact schema). Run `make build` then `make run`. Tables named `truth_*` exist only in simulation; sections that validate against truth are skipped or must be removed for real data.
+Place parquet or CSV-converted extracts in `data/raw/` named `raw_sources, raw_lots, raw_items, raw_outcomes` (and `raw_item_audit` if you have audited matches), with the same columns (see `docs/DATA_DICTIONARY.md` and `src/returns_decision_engine/sim/generate.py` for the exact schema). Run `make build` then `make run`. Tables named `truth_*` exist only in simulation; sections that validate against truth are skipped or must be removed for real data.
 
 ## Checks that protect you
 

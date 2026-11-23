@@ -54,7 +54,7 @@ html=f'''<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Recovery Lab</title>
+<title>Returns Decision Engine</title>
 {helmet}
 </head>
 <body>

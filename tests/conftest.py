@@ -4,7 +4,7 @@ from pathlib import Path
 import pytest
 import yaml
 
-from recovery_lab.config import Config
+from returns_decision_engine.config import Config
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -22,7 +22,7 @@ SMALL = {"simulation.scale.n_lots": 140, "simulation.scale.items_per_lot_median"
 
 @pytest.fixture(scope="session")
 def small_root(tmp_path_factory):
-    from recovery_lab.sim.generate import write_raw
+    from returns_decision_engine.sim.generate import write_raw
     root = make_root(tmp_path_factory.mktemp("rl"))
     cfg = Config(SMALL, root=root)
     write_raw(cfg)
@@ -36,7 +36,7 @@ def cfg(small_root):
 
 @pytest.fixture(scope="session")
 def warehouse(small_root):
-    from recovery_lab.data.warehouse import build_warehouse
+    from returns_decision_engine.data.warehouse import build_warehouse
     cfg = Config(SMALL, root=small_root)
     w = build_warehouse(cfg, verbose=False)
     yield w
