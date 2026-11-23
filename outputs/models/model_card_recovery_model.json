@@ -1,6 +1,6 @@
 {
   "model": "Recovery rate (two-part LightGBM + conformal intervals)",
-  "generated": "2026-11-23 13:04",
+  "generated": "2026-11-23 19:23",
   "intended_use": "Predict gross recovery (sale price / retail) for items about to be listed; zeros included.",
   "training_data": {
     "train_rows": 39458,
