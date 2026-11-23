@@ -1,0 +1,442 @@
+level,calculation,grp,value,format,description
+overall,items_closed,ALL,72499.0,int,Items with a final outcome
+category,items_closed,Tools,5896.0,int,Items with a final outcome
+category,items_closed,Home_decor,5724.0,int,Items with a final outcome
+category,items_closed,Low_value_bundles,5269.0,int,Items with a final outcome
+category,items_closed,Large_appliances,2839.0,int,Items with a final outcome
+category,items_closed,Audio_wearables,5462.0,int,Items with a final outcome
+category,items_closed,Furniture,3025.0,int,Items with a final outcome
+category,items_closed,Laptops_current,3635.0,int,Items with a final outcome
+category,items_closed,Toys_games,7548.0,int,Items with a final outcome
+category,items_closed,Gaming,3639.0,int,Items with a final outcome
+category,items_closed,Small_appliances,6659.0,int,Items with a final outcome
+category,items_closed,Smartphones,2987.0,int,Items with a final outcome
+category,items_closed,TVs,4879.0,int,Items with a final outcome
+category,items_closed,Apparel_shoes,8278.0,int,Items with a final outcome
+category,items_closed,Beauty_health,3752.0,int,Items with a final outcome
+category,items_closed,Laptops_older,2907.0,int,Items with a final outcome
+source_type,items_closed,broker_liquidation,14333.0,int,Items with a final outcome
+source_type,items_closed,ecommerce_returns,17816.0,int,Items with a final outcome
+source_type,items_closed,big_box_returns,22778.0,int,Items with a final outcome
+source_type,items_closed,regional_marketplace,4520.0,int,Items with a final outcome
+source_type,items_closed,overstock_closeout,13052.0,int,Items with a final outcome
+month,items_closed,2024-11,2205.0,int,Items with a final outcome
+month,items_closed,2024-12,3238.0,int,Items with a final outcome
+month,items_closed,2025-01,2436.0,int,Items with a final outcome
+month,items_closed,2025-03,3529.0,int,Items with a final outcome
+month,items_closed,2025-05,2806.0,int,Items with a final outcome
+month,items_closed,2025-06,2962.0,int,Items with a final outcome
+month,items_closed,2025-08,3278.0,int,Items with a final outcome
+month,items_closed,2025-09,3795.0,int,Items with a final outcome
+month,items_closed,2025-12,2585.0,int,Items with a final outcome
+month,items_closed,2026-06,3873.0,int,Items with a final outcome
+month,items_closed,2026-07,3266.0,int,Items with a final outcome
+month,items_closed,2026-08,2536.0,int,Items with a final outcome
+month,items_closed,2025-02,2846.0,int,Items with a final outcome
+month,items_closed,2025-04,2473.0,int,Items with a final outcome
+month,items_closed,2025-07,2159.0,int,Items with a final outcome
+month,items_closed,2025-10,3873.0,int,Items with a final outcome
+month,items_closed,2025-11,3842.0,int,Items with a final outcome
+month,items_closed,2026-01,2587.0,int,Items with a final outcome
+month,items_closed,2026-02,3844.0,int,Items with a final outcome
+month,items_closed,2026-03,3759.0,int,Items with a final outcome
+month,items_closed,2026-04,2570.0,int,Items with a final outcome
+month,items_closed,2026-05,3640.0,int,Items with a final outcome
+month,items_closed,2026-09,2531.0,int,Items with a final outcome
+month,items_closed,2026-10,1866.0,int,Items with a final outcome
+channel,items_closed,auction,57800.0,int,Items with a final outcome
+channel,items_closed,fixed_price,14699.0,int,Items with a final outcome
+overall,items_open,ALL,634.0,int,Items still listed (outcome not final)
+category,items_open,Large_appliances,28.0,int,Items still listed (outcome not final)
+category,items_open,Tools,60.0,int,Items still listed (outcome not final)
+category,items_open,Audio_wearables,33.0,int,Items still listed (outcome not final)
+category,items_open,Home_decor,37.0,int,Items still listed (outcome not final)
+category,items_open,Furniture,30.0,int,Items still listed (outcome not final)
+category,items_open,Laptops_current,36.0,int,Items still listed (outcome not final)
+category,items_open,Low_value_bundles,31.0,int,Items still listed (outcome not final)
+category,items_open,TVs,57.0,int,Items still listed (outcome not final)
+category,items_open,Toys_games,77.0,int,Items still listed (outcome not final)
+category,items_open,Laptops_older,34.0,int,Items still listed (outcome not final)
+category,items_open,Beauty_health,26.0,int,Items still listed (outcome not final)
+category,items_open,Small_appliances,51.0,int,Items still listed (outcome not final)
+category,items_open,Apparel_shoes,63.0,int,Items still listed (outcome not final)
+category,items_open,Smartphones,41.0,int,Items still listed (outcome not final)
+category,items_open,Gaming,30.0,int,Items still listed (outcome not final)
+channel,items_open,fixed_price,429.0,int,Items still listed (outcome not final)
+channel,items_open,auction,205.0,int,Items still listed (outcome not final)
+overall,sell_through,ALL,0.8389219161643608,pct,Share of closed items that sold
+category,sell_through,Toys_games,0.839957604663487,pct,Share of closed items that sold
+category,sell_through,Gaming,0.9387194284143996,pct,Share of closed items that sold
+category,sell_through,Small_appliances,0.9029884367022075,pct,Share of closed items that sold
+category,sell_through,Smartphones,0.9651824573150318,pct,Share of closed items that sold
+category,sell_through,TVs,0.9227300676368109,pct,Share of closed items that sold
+category,sell_through,Apparel_shoes,0.8138439236530562,pct,Share of closed items that sold
+category,sell_through,Beauty_health,0.8702025586353944,pct,Share of closed items that sold
+category,sell_through,Laptops_older,0.7946336429308566,pct,Share of closed items that sold
+category,sell_through,Tools,0.9313093622795116,pct,Share of closed items that sold
+category,sell_through,Home_decor,0.7440600978336828,pct,Share of closed items that sold
+category,sell_through,Low_value_bundles,0.5147086733725564,pct,Share of closed items that sold
+category,sell_through,Large_appliances,0.7819654808030997,pct,Share of closed items that sold
+category,sell_through,Audio_wearables,0.9350054924935921,pct,Share of closed items that sold
+category,sell_through,Furniture,0.6955371900826446,pct,Share of closed items that sold
+category,sell_through,Laptops_current,0.9524071526822558,pct,Share of closed items that sold
+source_type,sell_through,broker_liquidation,0.7538547408079258,pct,Share of closed items that sold
+source_type,sell_through,ecommerce_returns,0.8401436910642119,pct,Share of closed items that sold
+source_type,sell_through,big_box_returns,0.8615769602247783,pct,Share of closed items that sold
+source_type,sell_through,regional_marketplace,0.8411504424778761,pct,Share of closed items that sold
+source_type,sell_through,overstock_closeout,0.8903616304014711,pct,Share of closed items that sold
+month,sell_through,2024-11,0.8562358276643991,pct,Share of closed items that sold
+month,sell_through,2024-12,0.8736874613959235,pct,Share of closed items that sold
+month,sell_through,2025-01,0.8091133004926109,pct,Share of closed items that sold
+month,sell_through,2025-03,0.8172286766789458,pct,Share of closed items that sold
+month,sell_through,2025-05,0.8431931575196009,pct,Share of closed items that sold
+month,sell_through,2025-06,0.8274814314652262,pct,Share of closed items that sold
+month,sell_through,2025-08,0.8178767541183648,pct,Share of closed items that sold
+month,sell_through,2025-09,0.8266139657444005,pct,Share of closed items that sold
+month,sell_through,2025-12,0.9044487427466151,pct,Share of closed items that sold
+month,sell_through,2026-06,0.8313968499870901,pct,Share of closed items that sold
+month,sell_through,2026-07,0.8505817513778322,pct,Share of closed items that sold
+month,sell_through,2026-08,0.8643533123028391,pct,Share of closed items that sold
+month,sell_through,2025-02,0.7940969782150387,pct,Share of closed items that sold
+month,sell_through,2025-04,0.7990295188030732,pct,Share of closed items that sold
+month,sell_through,2025-07,0.8295507179249653,pct,Share of closed items that sold
+month,sell_through,2025-10,0.8241673121611154,pct,Share of closed items that sold
+month,sell_through,2025-11,0.8612701717855283,pct,Share of closed items that sold
+month,sell_through,2026-01,0.8291457286432161,pct,Share of closed items that sold
+month,sell_through,2026-02,0.8371488033298647,pct,Share of closed items that sold
+month,sell_through,2026-03,0.828145783453046,pct,Share of closed items that sold
+month,sell_through,2026-04,0.8556420233463035,pct,Share of closed items that sold
+month,sell_through,2026-05,0.8502747252747253,pct,Share of closed items that sold
+month,sell_through,2026-09,0.8478862109838009,pct,Share of closed items that sold
+month,sell_through,2026-10,0.879957127545552,pct,Share of closed items that sold
+channel,sell_through,auction,0.8158477508650519,pct,Share of closed items that sold
+channel,sell_through,fixed_price,0.929655078576774,pct,Share of closed items that sold
+overall,gross_recovery_on_sold,ALL,0.4693795553667644,pct,"Sale price / retail value, sold items only (the survivor view)"
+category,gross_recovery_on_sold,Tools,0.5586094055836834,pct,"Sale price / retail value, sold items only (the survivor view)"
+category,gross_recovery_on_sold,Home_decor,0.30343153135912804,pct,"Sale price / retail value, sold items only (the survivor view)"
+category,gross_recovery_on_sold,Low_value_bundles,0.16925963300055813,pct,"Sale price / retail value, sold items only (the survivor view)"
+category,gross_recovery_on_sold,Large_appliances,0.44232000118903697,pct,"Sale price / retail value, sold items only (the survivor view)"
+category,gross_recovery_on_sold,Audio_wearables,0.464947519830444,pct,"Sale price / retail value, sold items only (the survivor view)"
+category,gross_recovery_on_sold,Furniture,0.2874613239026365,pct,"Sale price / retail value, sold items only (the survivor view)"
+category,gross_recovery_on_sold,Laptops_current,0.5200151692797582,pct,"Sale price / retail value, sold items only (the survivor view)"
+category,gross_recovery_on_sold,Toys_games,0.3700943171650683,pct,"Sale price / retail value, sold items only (the survivor view)"
+category,gross_recovery_on_sold,Gaming,0.5185957011437003,pct,"Sale price / retail value, sold items only (the survivor view)"
+category,gross_recovery_on_sold,Small_appliances,0.5005671535490916,pct,"Sale price / retail value, sold items only (the survivor view)"
+category,gross_recovery_on_sold,Smartphones,0.596224710574603,pct,"Sale price / retail value, sold items only (the survivor view)"
+category,gross_recovery_on_sold,TVs,0.4724623540914489,pct,"Sale price / retail value, sold items only (the survivor view)"
+category,gross_recovery_on_sold,Apparel_shoes,0.36135561297364144,pct,"Sale price / retail value, sold items only (the survivor view)"
+category,gross_recovery_on_sold,Beauty_health,0.3962360106453406,pct,"Sale price / retail value, sold items only (the survivor view)"
+category,gross_recovery_on_sold,Laptops_older,0.3268045169248598,pct,"Sale price / retail value, sold items only (the survivor view)"
+source_type,gross_recovery_on_sold,broker_liquidation,0.38797417280141216,pct,"Sale price / retail value, sold items only (the survivor view)"
+source_type,gross_recovery_on_sold,ecommerce_returns,0.44122664166441034,pct,"Sale price / retail value, sold items only (the survivor view)"
+source_type,gross_recovery_on_sold,big_box_returns,0.48065693611493193,pct,"Sale price / retail value, sold items only (the survivor view)"
+source_type,gross_recovery_on_sold,regional_marketplace,0.42435935713128686,pct,"Sale price / retail value, sold items only (the survivor view)"
+source_type,gross_recovery_on_sold,overstock_closeout,0.5827116584688278,pct,"Sale price / retail value, sold items only (the survivor view)"
+channel,gross_recovery_on_sold,auction,0.4744644587026248,pct,"Sale price / retail value, sold items only (the survivor view)"
+channel,gross_recovery_on_sold,fixed_price,0.4532097132903788,pct,"Sale price / retail value, sold items only (the survivor view)"
+overall,gross_recovery_all_listed,ALL,0.4143463926523375,pct,"Sale price / retail value over ALL closed items, zeros included"
+category,gross_recovery_all_listed,Tools,0.5211210396468885,pct,"Sale price / retail value over ALL closed items, zeros included"
+category,gross_recovery_all_listed,Home_decor,0.23219131096828088,pct,"Sale price / retail value over ALL closed items, zeros included"
+category,gross_recovery_all_listed,Low_value_bundles,0.09119036322088075,pct,"Sale price / retail value over ALL closed items, zeros included"
+category,gross_recovery_all_listed,Large_appliances,0.3470010666064551,pct,"Sale price / retail value over ALL closed items, zeros included"
+category,gross_recovery_all_listed,Audio_wearables,0.4355860997228784,pct,"Sale price / retail value over ALL closed items, zeros included"
+category,gross_recovery_all_listed,Furniture,0.2012148314916263,pct,"Sale price / retail value over ALL closed items, zeros included"
+category,gross_recovery_all_listed,Laptops_current,0.49589737678077717,pct,"Sale price / retail value over ALL closed items, zeros included"
+category,gross_recovery_all_listed,Toys_games,0.31737211641813706,pct,"Sale price / retail value over ALL closed items, zeros included"
+category,gross_recovery_all_listed,Gaming,0.48957965029437855,pct,"Sale price / retail value over ALL closed items, zeros included"
+category,gross_recovery_all_listed,Small_appliances,0.4524895281087055,pct,"Sale price / retail value over ALL closed items, zeros included"
+category,gross_recovery_all_listed,Smartphones,0.5773051577320402,pct,"Sale price / retail value over ALL closed items, zeros included"
+category,gross_recovery_all_listed,TVs,0.4368513154568205,pct,"Sale price / retail value over ALL closed items, zeros included"
+category,gross_recovery_all_listed,Apparel_shoes,0.29545464963619833,pct,"Sale price / retail value over ALL closed items, zeros included"
+category,gross_recovery_all_listed,Beauty_health,0.34606508792878077,pct,"Sale price / retail value over ALL closed items, zeros included"
+category,gross_recovery_all_listed,Laptops_older,0.2614261296793118,pct,"Sale price / retail value over ALL closed items, zeros included"
+source_type,gross_recovery_all_listed,broker_liquidation,0.31911155644276845,pct,"Sale price / retail value over ALL closed items, zeros included"
+source_type,gross_recovery_all_listed,ecommerce_returns,0.38640800915189766,pct,"Sale price / retail value over ALL closed items, zeros included"
+source_type,gross_recovery_all_listed,big_box_returns,0.43317142734103414,pct,"Sale price / retail value over ALL closed items, zeros included"
+source_type,gross_recovery_all_listed,regional_marketplace,0.36522492997180145,pct,"Sale price / retail value over ALL closed items, zeros included"
+source_type,gross_recovery_all_listed,overstock_closeout,0.5376224081798915,pct,"Sale price / retail value over ALL closed items, zeros included"
+month,gross_recovery_all_listed,2024-11,0.4724463109681083,pct,"Sale price / retail value over ALL closed items, zeros included"
+month,gross_recovery_all_listed,2024-12,0.5023440128420401,pct,"Sale price / retail value over ALL closed items, zeros included"
+month,gross_recovery_all_listed,2025-01,0.38187832955901047,pct,"Sale price / retail value over ALL closed items, zeros included"
+month,gross_recovery_all_listed,2025-03,0.40599645866565176,pct,"Sale price / retail value over ALL closed items, zeros included"
+month,gross_recovery_all_listed,2025-05,0.4202318371288807,pct,"Sale price / retail value over ALL closed items, zeros included"
+month,gross_recovery_all_listed,2025-06,0.41004380701834187,pct,"Sale price / retail value over ALL closed items, zeros included"
+month,gross_recovery_all_listed,2025-08,0.4011060967157573,pct,"Sale price / retail value over ALL closed items, zeros included"
+month,gross_recovery_all_listed,2025-09,0.4204428633515906,pct,"Sale price / retail value over ALL closed items, zeros included"
+month,gross_recovery_all_listed,2025-12,0.4876572449166232,pct,"Sale price / retail value over ALL closed items, zeros included"
+month,gross_recovery_all_listed,2026-06,0.38809622592374504,pct,"Sale price / retail value over ALL closed items, zeros included"
+month,gross_recovery_all_listed,2026-07,0.38448969296325736,pct,"Sale price / retail value over ALL closed items, zeros included"
+month,gross_recovery_all_listed,2026-08,0.4061822783477671,pct,"Sale price / retail value over ALL closed items, zeros included"
+month,gross_recovery_all_listed,2025-02,0.38475160684179416,pct,"Sale price / retail value over ALL closed items, zeros included"
+month,gross_recovery_all_listed,2025-04,0.3834445835557022,pct,"Sale price / retail value over ALL closed items, zeros included"
+month,gross_recovery_all_listed,2025-07,0.39101688804371426,pct,"Sale price / retail value over ALL closed items, zeros included"
+month,gross_recovery_all_listed,2025-10,0.4212247426008007,pct,"Sale price / retail value over ALL closed items, zeros included"
+month,gross_recovery_all_listed,2025-11,0.4479338425344511,pct,"Sale price / retail value over ALL closed items, zeros included"
+month,gross_recovery_all_listed,2026-01,0.3679508249543479,pct,"Sale price / retail value over ALL closed items, zeros included"
+month,gross_recovery_all_listed,2026-02,0.39137100617705656,pct,"Sale price / retail value over ALL closed items, zeros included"
+month,gross_recovery_all_listed,2026-03,0.38120300893647086,pct,"Sale price / retail value over ALL closed items, zeros included"
+month,gross_recovery_all_listed,2026-04,0.42140911505358064,pct,"Sale price / retail value over ALL closed items, zeros included"
+month,gross_recovery_all_listed,2026-05,0.4319665931313329,pct,"Sale price / retail value over ALL closed items, zeros included"
+month,gross_recovery_all_listed,2026-09,0.416631434034597,pct,"Sale price / retail value over ALL closed items, zeros included"
+month,gross_recovery_all_listed,2026-10,0.4116876343301189,pct,"Sale price / retail value over ALL closed items, zeros included"
+channel,gross_recovery_all_listed,auction,0.4105849952750128,pct,"Sale price / retail value over ALL closed items, zeros included"
+channel,gross_recovery_all_listed,fixed_price,0.427380719981186,pct,"Sale price / retail value over ALL closed items, zeros included"
+overall,net_recovery_all_listed,ALL,0.3469960708306675,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+category,net_recovery_all_listed,Tools,0.37080412629521753,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+category,net_recovery_all_listed,Home_decor,0.04221801730752846,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+category,net_recovery_all_listed,Low_value_bundles,-0.032152813356825495,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+category,net_recovery_all_listed,Large_appliances,0.27504289859102365,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+category,net_recovery_all_listed,Audio_wearables,0.38110599101975196,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+category,net_recovery_all_listed,Furniture,0.08494455940913058,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+category,net_recovery_all_listed,Laptops_current,0.4582266626436583,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+category,net_recovery_all_listed,Toys_games,0.15304205133609086,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+category,net_recovery_all_listed,Gaming,0.43399271153523844,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+category,net_recovery_all_listed,Small_appliances,0.3486853529802334,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+category,net_recovery_all_listed,Smartphones,0.5445912067974054,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+category,net_recovery_all_listed,TVs,0.36238138380738294,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+category,net_recovery_all_listed,Apparel_shoes,0.22112585918827413,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+category,net_recovery_all_listed,Beauty_health,0.22014632377972423,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+category,net_recovery_all_listed,Laptops_older,0.24673047392479866,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+source_type,net_recovery_all_listed,broker_liquidation,0.2669670870998255,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+source_type,net_recovery_all_listed,ecommerce_returns,0.3248149398025383,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+source_type,net_recovery_all_listed,big_box_returns,0.36528933912070966,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+source_type,net_recovery_all_listed,regional_marketplace,0.28848652305034017,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+source_type,net_recovery_all_listed,overstock_closeout,0.44972988625794436,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+month,net_recovery_all_listed,2024-11,0.3982113751342768,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+month,net_recovery_all_listed,2024-12,0.42363732266005794,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+month,net_recovery_all_listed,2025-01,0.32367641254932183,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+month,net_recovery_all_listed,2025-03,0.34859671540932213,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+month,net_recovery_all_listed,2025-05,0.3510910611331198,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+month,net_recovery_all_listed,2025-06,0.35324588705032983,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+month,net_recovery_all_listed,2025-08,0.33673646755169834,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+month,net_recovery_all_listed,2025-09,0.35559528650936734,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+month,net_recovery_all_listed,2025-12,0.4074745487315773,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+month,net_recovery_all_listed,2026-06,0.31030422502168814,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+month,net_recovery_all_listed,2026-07,0.318507281659554,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+month,net_recovery_all_listed,2026-08,0.32992184505665645,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+month,net_recovery_all_listed,2025-02,0.33074356075436234,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+month,net_recovery_all_listed,2025-04,0.31757270612488614,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+month,net_recovery_all_listed,2025-07,0.3268272968311499,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+month,net_recovery_all_listed,2025-10,0.3562108050088858,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+month,net_recovery_all_listed,2025-11,0.38183453609123746,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+month,net_recovery_all_listed,2026-01,0.3032004038253439,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+month,net_recovery_all_listed,2026-02,0.3271981950471828,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+month,net_recovery_all_listed,2026-03,0.31532012545089755,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+month,net_recovery_all_listed,2026-04,0.35048182215662627,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+month,net_recovery_all_listed,2026-05,0.3637977946653178,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+month,net_recovery_all_listed,2026-09,0.34400229774509467,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+month,net_recovery_all_listed,2026-10,0.33349026449802766,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+channel,net_recovery_all_listed,auction,0.34696456010547916,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+channel,net_recovery_all_listed,fixed_price,0.34710526458640556,pct,"Net revenue (after fees, shipping, refunds, plus fallback) / retail value"
+overall,avg_days_to_close,ALL,6.0663733292873,num,Days from listing to final outcome
+category,avg_days_to_close,Tools,6.479816824966079,num,Days from listing to final outcome
+category,avg_days_to_close,Home_decor,4.965932914046122,num,Days from listing to final outcome
+category,avg_days_to_close,Low_value_bundles,4.856139684949706,num,Days from listing to final outcome
+category,avg_days_to_close,Large_appliances,5.021134202183868,num,Days from listing to final outcome
+category,avg_days_to_close,Audio_wearables,6.712010252654705,num,Days from listing to final outcome
+category,avg_days_to_close,Furniture,4.560661157024794,num,Days from listing to final outcome
+category,avg_days_to_close,Laptops_current,6.924346629986245,num,Days from listing to final outcome
+category,avg_days_to_close,Toys_games,5.661764705882353,num,Days from listing to final outcome
+category,avg_days_to_close,Gaming,6.836493542181918,num,Days from listing to final outcome
+category,avg_days_to_close,Small_appliances,6.499324222856285,num,Days from listing to final outcome
+category,avg_days_to_close,Smartphones,6.691663876799464,num,Days from listing to final outcome
+category,avg_days_to_close,TVs,6.895675343308055,num,Days from listing to final outcome
+category,avg_days_to_close,Apparel_shoes,6.201377144237739,num,Days from listing to final outcome
+category,avg_days_to_close,Beauty_health,5.838752665245202,num,Days from listing to final outcome
+category,avg_days_to_close,Laptops_older,6.859649122807017,num,Days from listing to final outcome
+channel,avg_days_to_close,auction,4.092318339100346,num,Days from listing to final outcome
+channel,avg_days_to_close,fixed_price,13.828831893326077,num,Days from listing to final outcome
+overall,refund_rate,ALL,0.05904210716693247,pct,Share of sales that were refunded
+category,refund_rate,Tools,0.04079402658896376,pct,Share of sales that were refunded
+category,refund_rate,Home_decor,0.052594505752524064,pct,Share of sales that were refunded
+category,refund_rate,Low_value_bundles,0.018067846607669618,pct,Share of sales that were refunded
+category,refund_rate,Large_appliances,0.045495495495495496,pct,Share of sales that were refunded
+category,refund_rate,Audio_wearables,0.06775014685725475,pct,Share of sales that were refunded
+category,refund_rate,Furniture,0.04895437262357415,pct,Share of sales that were refunded
+category,refund_rate,Laptops_current,0.07365684575389948,pct,Share of sales that were refunded
+category,refund_rate,Toys_games,0.02665615141955836,pct,Share of sales that were refunded
+category,refund_rate,Gaming,0.06967213114754098,pct,Share of sales that were refunded
+category,refund_rate,Small_appliances,0.06236487610177948,pct,Share of sales that were refunded
+category,refund_rate,Smartphones,0.045091918140825527,pct,Share of sales that were refunded
+category,refund_rate,TVs,0.06352732119058196,pct,Share of sales that were refunded
+category,refund_rate,Apparel_shoes,0.1163722725248627,pct,Share of sales that were refunded
+category,refund_rate,Beauty_health,0.039816232771822356,pct,Share of sales that were refunded
+category,refund_rate,Laptops_older,0.07662337662337662,pct,Share of sales that were refunded
+source_type,refund_rate,broker_liquidation,0.07089310504396112,pct,Share of sales that were refunded
+source_type,refund_rate,ecommerce_returns,0.06333511491181186,pct,Share of sales that were refunded
+source_type,refund_rate,big_box_returns,0.06394904458598726,pct,Share of sales that were refunded
+source_type,refund_rate,regional_marketplace,0.05760126249342452,pct,Share of sales that were refunded
+source_type,refund_rate,overstock_closeout,0.03467859908785819,pct,Share of sales that were refunded
+overall,handling_cost_per_item,ALL,5.990469520958873,usd,Average handling labor cost per item
+category,handling_cost_per_item,Tools,5.206973677069203,usd,Average handling labor cost per item
+category,handling_cost_per_item,Home_decor,4.179911320754708,usd,Average handling labor cost per item
+category,handling_cost_per_item,Low_value_bundles,3.321342000379568,usd,Average handling labor cost per item
+category,handling_cost_per_item,Large_appliances,12.710779640718497,usd,Average handling labor cost per item
+category,handling_cost_per_item,Audio_wearables,5.198392383742217,usd,Average handling labor cost per item
+category,handling_cost_per_item,Furniture,13.024338975206602,usd,Average handling labor cost per item
+category,handling_cost_per_item,Laptops_current,9.760698376891309,usd,Average handling labor cost per item
+category,handling_cost_per_item,Toys_games,3.8504759936407074,usd,Average handling labor cost per item
+category,handling_cost_per_item,Gaming,6.184960868370412,usd,Average handling labor cost per item
+category,handling_cost_per_item,Small_appliances,5.7826121639885875,usd,Average handling labor cost per item
+category,handling_cost_per_item,Smartphones,6.997452427184461,usd,Average handling labor cost per item
+category,handling_cost_per_item,TVs,8.71681242057797,usd,Average handling labor cost per item
+category,handling_cost_per_item,Apparel_shoes,3.6207655472336366,usd,Average handling labor cost per item
+category,handling_cost_per_item,Beauty_health,3.2366858742004236,usd,Average handling labor cost per item
+category,handling_cost_per_item,Laptops_older,9.354710147918803,usd,Average handling labor cost per item
+overall,final_net_value_per_item,ALL,78.5020951049704,usd,"Net revenue minus handling, holding and extra costs, before lot cost"
+category,final_net_value_per_item,Tools,38.116038707860504,usd,"Net revenue minus handling, holding and extra costs, before lot cost"
+category,final_net_value_per_item,Home_decor,-3.006921485911781,usd,"Net revenue minus handling, holding and extra costs, before lot cost"
+category,final_net_value_per_item,Low_value_bundles,-4.193330450880994,usd,"Net revenue minus handling, holding and extra costs, before lot cost"
+category,final_net_value_per_item,Large_appliances,198.46928204135207,usd,"Net revenue minus handling, holding and extra costs, before lot cost"
+category,final_net_value_per_item,Audio_wearables,51.404556770103234,usd,"Net revenue minus handling, holding and extra costs, before lot cost"
+category,final_net_value_per_item,Furniture,9.923194436827666,usd,"Net revenue minus handling, holding and extra costs, before lot cost"
+category,final_net_value_per_item,Laptops_current,448.7291985396805,usd,"Net revenue minus handling, holding and extra costs, before lot cost"
+category,final_net_value_per_item,Toys_games,2.066278227040617,usd,"Net revenue minus handling, holding and extra costs, before lot cost"
+category,final_net_value_per_item,Gaming,113.53733805659853,usd,"Net revenue minus handling, holding and extra costs, before lot cost"
+category,final_net_value_per_item,Small_appliances,28.355472832475446,usd,"Net revenue minus handling, holding and extra costs, before lot cost"
+category,final_net_value_per_item,Smartphones,310.1225784021855,usd,"Net revenue minus handling, holding and extra costs, before lot cost"
+category,final_net_value_per_item,TVs,205.8364050302761,usd,"Net revenue minus handling, holding and extra costs, before lot cost"
+category,final_net_value_per_item,Apparel_shoes,12.721796456724404,usd,"Net revenue minus handling, holding and extra costs, before lot cost"
+category,final_net_value_per_item,Beauty_health,3.8180660509546547,usd,"Net revenue minus handling, holding and extra costs, before lot cost"
+category,final_net_value_per_item,Laptops_older,114.44689140309178,usd,"Net revenue minus handling, holding and extra costs, before lot cost"
+source_type,final_net_value_per_item,broker_liquidation,49.29945571119264,usd,"Net revenue minus handling, holding and extra costs, before lot cost"
+source_type,final_net_value_per_item,ecommerce_returns,63.90761145520054,usd,"Net revenue minus handling, holding and extra costs, before lot cost"
+source_type,final_net_value_per_item,big_box_returns,107.47197810127706,usd,"Net revenue minus handling, holding and extra costs, before lot cost"
+source_type,final_net_value_per_item,regional_marketplace,67.10527616137257,usd,"Net revenue minus handling, holding and extra costs, before lot cost"
+source_type,final_net_value_per_item,overstock_closeout,83.88168274445027,usd,"Net revenue minus handling, holding and extra costs, before lot cost"
+channel,final_net_value_per_item,auction,76.6159440297037,usd,"Net revenue minus handling, holding and extra costs, before lot cost"
+channel,final_net_value_per_item,fixed_price,85.91889435324825,usd,"Net revenue minus handling, holding and extra costs, before lot cost"
+overall,contribution_margin_total,ALL,820165.625366339,usd,Final net value minus allocated lot price and freight
+category,contribution_margin_total,Tools,26429.400464249447,usd,Final net value minus allocated lot price and freight
+category,contribution_margin_total,Home_decor,-126401.3587592118,usd,Final net value minus allocated lot price and freight
+category,contribution_margin_total,Low_value_bundles,-43891.03925032532,usd,Final net value minus allocated lot price and freight
+category,contribution_margin_total,Large_appliances,12151.938498716963,usd,Final net value minus allocated lot price and freight
+category,contribution_margin_total,Audio_wearables,53754.86210086266,usd,Final net value minus allocated lot price and freight
+category,contribution_margin_total,Furniture,-278030.4979082223,usd,Final net value minus allocated lot price and freight
+category,contribution_margin_total,Laptops_current,646106.3638698005,usd,Final net value minus allocated lot price and freight
+category,contribution_margin_total,Toys_games,-82524.58322113127,usd,Final net value minus allocated lot price and freight
+category,contribution_margin_total,Gaming,130199.80303937502,usd,Final net value minus allocated lot price and freight
+category,contribution_margin_total,Small_appliances,10899.935324249665,usd,Final net value minus allocated lot price and freight
+category,contribution_margin_total,Smartphones,408697.7473448937,usd,Final net value minus allocated lot price and freight
+category,contribution_margin_total,TVs,174617.86651842966,usd,Final net value minus allocated lot price and freight
+category,contribution_margin_total,Apparel_shoes,-57185.87614821433,usd,Final net value minus allocated lot price and freight
+category,contribution_margin_total,Beauty_health,-17179.422019808662,usd,Final net value minus allocated lot price and freight
+category,contribution_margin_total,Laptops_older,-37479.51448732265,usd,Final net value minus allocated lot price and freight
+source_type,contribution_margin_total,broker_liquidation,136784.36596819232,usd,Final net value minus allocated lot price and freight
+source_type,contribution_margin_total,ecommerce_returns,106927.03281989276,usd,Final net value minus allocated lot price and freight
+source_type,contribution_margin_total,big_box_returns,377728.454640448,usd,Final net value minus allocated lot price and freight
+source_type,contribution_margin_total,regional_marketplace,57902.3804652659,usd,Final net value minus allocated lot price and freight
+source_type,contribution_margin_total,overstock_closeout,140823.3914725455,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S022,49677.07015307209,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S018,22256.625198860685,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S011,-19135.015048091474,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S007,14321.492873671259,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S023,1476.005436075791,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S006,20701.34260853816,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S021,41646.628495609446,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S012,28450.12931506241,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S017,8980.086942646389,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S028,5427.135212760843,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S005,23771.192642956878,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S031,1951.1175544370924,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S033,-247.9406043809851,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S034,9353.86082807885,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S025,101871.15409394573,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S010,15408.057937826226,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S001,173903.4834026956,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S013,8848.224972576152,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S003,76510.58449618195,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S026,1276.0196911910841,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S024,4500.988262751787,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S008,49871.03688417481,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S020,19585.874850467415,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S015,27560.877677699893,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S016,-894.6106404480262,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S019,7657.192774536041,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S027,22233.06327146778,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S004,11229.98669105595,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S014,19821.9763728907,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S009,17887.30528972953,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S002,7419.335041172611,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S029,1651.0984916834718,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S030,3830.1205278376087,usd,Final net value minus allocated lot price and freight
+source,contribution_margin_total,S032,41364.12366760984,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2024-11,30602.273026411964,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2024-12,42046.791948857186,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2025-01,22359.129119043842,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2025-03,36713.24051378241,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2025-05,18814.14934493151,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2025-06,34755.82745495447,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2025-08,23771.866699140643,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2025-09,36840.69534800209,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2025-12,43897.52918130826,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2026-06,49992.39405165052,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2026-07,33252.54691597415,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2026-08,31932.781991921773,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2025-02,36273.64743836896,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2025-04,24722.731634997628,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2025-07,24740.69759164155,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2025-10,52225.978522517195,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2025-11,59631.689806374095,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2026-01,14817.004538500825,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2026-02,33107.94657604811,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2026-03,35412.246601701234,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2026-04,27169.060820051964,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2026-05,49295.98745695051,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2026-09,34095.72833812167,usd,Final net value minus allocated lot price and freight
+month,contribution_margin_total,2026-10,23693.680445090242,usd,Final net value minus allocated lot price and freight
+overall,profit_per_retail_dollar,ALL,0.045341392218483344,pct,Contribution margin / retail value
+category,profit_per_retail_dollar,Tools,0.03675189284780742,pct,Contribution margin / retail value
+category,profit_per_retail_dollar,Home_decor,-0.33297339426086936,pct,Contribution margin / retail value
+category,profit_per_retail_dollar,Low_value_bundles,-0.503629561062351,pct,Contribution margin / retail value
+category,profit_per_retail_dollar,Large_appliances,0.005292933696835392,pct,Contribution margin / retail value
+category,profit_per_retail_dollar,Audio_wearables,0.06563995857456864,pct,Contribution margin / retail value
+category,profit_per_retail_dollar,Furniture,-0.2350895467427217,pct,Contribution margin / retail value
+category,profit_per_retail_dollar,Laptops_current,0.17689471030471896,pct,Contribution margin / retail value
+category,profit_per_retail_dollar,Toys_games,-0.24931848541066773,pct,Contribution margin / retail value
+category,profit_per_retail_dollar,Gaming,0.12848881006764773,pct,Contribution margin / retail value
+category,profit_per_retail_dollar,Small_appliances,0.01628781018917603,pct,Contribution margin / retail value
+category,profit_per_retail_dollar,Smartphones,0.2342017766900815,pct,Contribution margin / retail value
+category,profit_per_retail_dollar,TVs,0.05889647585060169,pct,Contribution margin / retail value
+category,profit_per_retail_dollar,Apparel_shoes,-0.09102070963298436,pct,Contribution margin / retail value
+category,profit_per_retail_dollar,Beauty_health,-0.1355344779976564,pct,Contribution margin / retail value
+category,profit_per_retail_dollar,Laptops_older,-0.025420690915332913,pct,Contribution margin / retail value
+source_type,profit_per_retail_dollar,broker_liquidation,0.04453849456735212,pct,Contribution margin / retail value
+source_type,profit_per_retail_dollar,ecommerce_returns,0.027373941286679138,pct,Contribution margin / retail value
+source_type,profit_per_retail_dollar,big_box_returns,0.05191466831891497,pct,Contribution margin / retail value
+source_type,profit_per_retail_dollar,regional_marketplace,0.04795174188122243,pct,Contribution margin / retail value
+source_type,profit_per_retail_dollar,overstock_closeout,0.05358779716919938,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S022,0.050607304783437494,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S018,0.03886454728738491,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S011,-0.046097384407536385,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S007,0.03271202393702088,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S023,0.0027332931379165366,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S006,0.06446991912987501,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S021,0.0773541406670106,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S012,0.033915503495429614,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S017,0.10470897765436886,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S028,0.039582344196344814,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S005,0.08654091489929654,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S031,0.01833660419255239,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S033,-0.0013238082678228619,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S034,0.04002960723531942,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S025,0.07003697720334646,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S010,0.043845382485998875,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S001,0.05198141826246716,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S013,0.034347527398332064,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S003,0.04809630151016212,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S026,0.002487520464591249,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S024,0.05872926121961179,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S008,0.08213649679391845,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S020,0.049687915858858456,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S015,0.05206735123928427,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S016,-0.0013540229501103375,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S019,0.054289713691440505,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S027,0.06354348621234251,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S004,0.07166109133179226,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S014,0.05920171187855807,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S009,0.04135207317504301,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S002,0.013683597648712294,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S029,0.009684676656579055,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S030,0.019805597515750954,pct,Contribution margin / retail value
+source,profit_per_retail_dollar,S032,0.13078755464083974,pct,Contribution margin / retail value

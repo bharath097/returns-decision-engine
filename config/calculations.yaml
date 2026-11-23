@@ -1,0 +1,44 @@
+# =====================================================================
+#  CALCULATION REGISTRY
+#  Named calculations evaluated by the SQL engine (DuckDB) over `mart_item`.
+#
+#  item calculations   -> become NEW COLUMNS on every item row (order matters:
+#                         later ones may reference earlier ones).
+#  aggregate calcs     -> evaluated at each requested `level` and written to
+#                         outputs/calculations.csv
+#
+#  Each entry:
+#    name         identifier
+#    level        item | aggregate
+#    sql          a single SQL expression (no semicolons, no DDL).  For
+#                 aggregates it may use sum/avg/count and FILTER (WHERE ...)
+#    where        OPTIONAL row filter applied before aggregation
+#    levels       (aggregate only) any of: overall, category, source, source_type, month, channel, lot
+#    format       display format hint: int | num | pct | usd
+#    description  plain language
+#
+#  ADD YOUR OWN by appending to either list. Example in docs/EXTENDING.md.
+# =====================================================================
+item_calculations:
+  # none by default: the core economic columns are built in sql/marts/mart_item_base.sql.
+  # Example (disabled):
+  # - {name: value_density, level: item, sql: "net_revenue / nullif(weight_class + 1, 0)", format: usd,
+  #    description: "Net revenue per weight class step"}
+  []
+
+aggregate_calculations:
+  - {name: items_closed, level: aggregate, sql: "count(*)", where: "status = 'closed'", levels: [overall, category, source_type, month, channel], format: int, description: "Items with a final outcome"}
+  - {name: items_open, level: aggregate, sql: "count(*)", where: "status = 'open'", levels: [overall, category, channel], format: int, description: "Items still listed (outcome not final)"}
+  - {name: sell_through, level: aggregate, sql: "avg(cast(sold as int))", where: "status = 'closed'", levels: [overall, category, source_type, month, channel], format: pct, description: "Share of closed items that sold"}
+  - {name: gross_recovery_on_sold, level: aggregate, sql: "sum(sale_price) filter (where sold) / nullif(sum(retail_value) filter (where sold), 0)", where: "status = 'closed'", levels: [overall, category, source_type, channel], format: pct, description: "Sale price / retail value, sold items only (the survivor view)"}
+  - {name: gross_recovery_all_listed, level: aggregate, sql: "sum(sale_price) / nullif(sum(retail_value), 0)", where: "status = 'closed'", levels: [overall, category, source_type, month, channel], format: pct, description: "Sale price / retail value over ALL closed items, zeros included"}
+  - {name: net_recovery_all_listed, level: aggregate, sql: "sum(net_revenue) / nullif(sum(retail_value), 0)", where: "status = 'closed'", levels: [overall, category, source_type, month, channel], format: pct, description: "Net revenue (after fees, shipping, refunds, plus fallback) / retail value"}
+  - {name: avg_days_to_close, level: aggregate, sql: "avg(days_listed)", where: "status = 'closed'", levels: [overall, category, channel], format: num, description: "Days from listing to final outcome"}
+  - {name: refund_rate, level: aggregate, sql: "avg(cast(refund_flag as int)) filter (where sold)", where: "status = 'closed'", levels: [overall, category, source_type], format: pct, description: "Share of sales that were refunded"}
+  - {name: handling_cost_per_item, level: aggregate, sql: "avg(handling_cost)", where: "status = 'closed'", levels: [overall, category], format: usd, description: "Average handling labor cost per item"}
+  - {name: final_net_value_per_item, level: aggregate, sql: "avg(final_net_value)", where: "status = 'closed'", levels: [overall, category, source_type, channel], format: usd, description: "Net revenue minus handling, holding and extra costs, before lot cost"}
+  - {name: contribution_margin_total, level: aggregate, sql: "sum(contribution_margin)", where: "status = 'closed'", levels: [overall, category, source_type, source, month], format: usd, description: "Final net value minus allocated lot price and freight"}
+  - {name: profit_per_retail_dollar, level: aggregate, sql: "sum(contribution_margin) / nullif(sum(retail_value), 0)", where: "status = 'closed'", levels: [overall, category, source_type, source], format: pct, description: "Contribution margin / retail value"}
+  # Example custom aggregate (disabled):
+  # - {name: oversize_share, level: aggregate, sql: "avg(cast(weight_class >= 3 as int))", levels: [overall, category], format: pct,
+  #    description: "Share of oversize items"}

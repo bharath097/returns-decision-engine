@@ -1,0 +1,41 @@
+name,dtype,role,known_at,status,used_in,description
+item_id,categorical,key,receipt,observable,[],Unique item key
+lot_id,categorical,key,receipt,observable,[],Truckload / lot key
+category,categorical,feature,listing,observable,"['recovery', 'hazard', 'uplift', 'lot']",Product category
+brand_tier,categorical,feature,listing,observable,"['recovery', 'hazard', 'uplift', 'lot']",Premium / mid / generic brand tier
+condition,categorical,feature,listing,observable,"['recovery', 'hazard', 'uplift', 'lot']",Graded condition after testing
+retail_value,numeric,feature,listing,observable,"['recovery', 'hazard', 'uplift', 'lot', 'match']",Recorded retail value from the catalog match (denominator of recovery rate)
+log_retail_value,numeric,feature,listing,derived,"['recovery', 'hazard', 'uplift']",Log of recorded retail value
+match_confidence,numeric,feature,listing,observable,"['recovery', 'hazard', 'uplift', 'match']",Confidence of the Amazon/Walmart catalog match
+product_age_years,numeric,feature,listing,observable,"['recovery', 'hazard', 'uplift', 'lot']",Years since the product model was released
+title,text,feature,listing,observable,['recovery'],Product title (text features)
+matched_title,text,context,listing,observable,['match'],Title of the catalog entry matched to the item
+return_reason,categorical,feature,receipt,ask,"['recovery', 'hazard']",Reason code from the original return
+weight_class,numeric,feature,listing,observable,"['recovery', 'hazard', 'uplift', 'lot']",0 tiny .. 4 bulky; drives shipping and holding cost
+photo_count,numeric,feature,listing,observable,"['recovery', 'hazard', 'uplift']",Number of listing photos
+receipt_to_listing_days,numeric,feature,listing,observable,"['recovery', 'hazard']",Days between receiving the item and listing it
+start_bid_pct,numeric,feature,listing,observable,"['recovery', 'hazard']",Opening bid as a share of retail value
+auction_duration_days,numeric,feature,listing,observable,['recovery'],Scheduled auction length
+end_dow,numeric,feature,listing,observable,['recovery'],Day of week the auction ends (0=Mon)
+end_hour,numeric,feature,listing,observable,['recovery'],Hour the auction ends
+simultaneous_listings,numeric,feature,listing,observable,"['recovery', 'hazard']",Items of the same category listed in the same week (supply glut)
+listing_moy,numeric,feature,listing,derived,"['recovery', 'hazard', 'uplift']",Calendar month of listing (seasonality)
+listing_dow,numeric,feature,listing,derived,"['recovery', 'hazard']",Day of week of listing
+source_id,categorical,feature,receipt,observable,"['recovery', 'hazard', 'lot']",Where the lot was bought
+source_type,categorical,feature,receipt,observable,"['recovery', 'hazard', 'uplift', 'lot']","Type of source (big-box returns, closeout, broker, ...)"
+region,categorical,feature,receipt,observable,"['recovery', 'hazard']",Sourcing region (new regions appear with the national expansion)
+manifest_flag,boolean,feature,receipt,observable,"['recovery', 'lot']",Lot arrived with an itemized manifest
+acquisition_rate,numeric,feature,receipt,derived,"['recovery', 'lot']",Lot price divided by lot retail value
+lot_item_count,numeric,feature,receipt,derived,['lot'],Items in the lot
+pilot_arm,categorical,context,listing,observable,['uplift'],Randomized channel arm: fixed / auction / not_eligible
+premium_pct,numeric,context,listing,observable,['uplift'],Randomized premium over the expected auction price
+photo_arm,categorical,context,listing,observable,['uplift'],Randomized extra-photo arm: none / control / extra
+handling_minutes,numeric,cost,sale,observable,[],Warehouse minutes spent on the item
+fees,numeric,cost,sale,observable,[],Payment and marketplace fees
+shipping_cost,numeric,cost,sale,observable,[],Shipping subsidy (plus return shipping on refunds)
+holding_days,numeric,cost,post_sale,observable,[],Days the item occupied the warehouse
+bidders,numeric,outcome,post_sale,observable,[],Number of bidders (known only after the auction)
+watchers,numeric,outcome,during_listing,observable,[],Watchers while listed (time-varying; excluded from listing-time models)
+sale_price,numeric,outcome,sale,observable,[],Price paid by the buyer
+sold,boolean,outcome,sale,observable,[],Item sold
+refund_flag,boolean,outcome,post_sale,observable,[],Sale was refunded

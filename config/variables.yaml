@@ -1,0 +1,100 @@
+# =====================================================================
+#  VARIABLE REGISTRY
+#  One row per variable. The pipeline reads this file to decide which columns
+#  become model features, which are costs, and which are never allowed in a
+#  pre-listing prediction (leakage guard).
+#
+#  Fields
+#    name        column name in the item table (mart_item)
+#    dtype       numeric | categorical | text | boolean | date
+#    role        feature | target | cost | key | context | outcome
+#    known_at    receipt < listing < during_listing < sale < post_sale
+#                (models that predict at listing time may only use receipt/listing)
+#    status      observable | derived | ask   ("ask" = business must confirm it exists)
+#    used_in     which models may consume it: recovery, hazard, uplift, lot, match
+#    derive      OPTIONAL SQL expression over mart_item columns -> creates the column
+#    source      OPTIONAL "user_csv": column supplied in data/user_inputs/extra_item_variables.csv
+#    description plain-language meaning
+#
+#  ADD YOUR OWN: append a row (see the "custom_variables" block at the bottom
+#  and docs/EXTENDING.md). No code changes are needed.
+# =====================================================================
+leakage_order: [receipt, listing, during_listing, sale, post_sale]
+prediction_allowed_known_at: [receipt, listing]
+
+variables:
+  # ---- keys ----
+  - {name: item_id, dtype: categorical, role: key, known_at: receipt, status: observable, used_in: [], description: "Unique item key"}
+  - {name: lot_id, dtype: categorical, role: key, known_at: receipt, status: observable, used_in: [], description: "Truckload / lot key"}
+  # ---- value ----
+  - {name: category, dtype: categorical, role: feature, known_at: listing, status: observable, used_in: [recovery, hazard, uplift, lot], description: "Product category"}
+  - {name: brand_tier, dtype: categorical, role: feature, known_at: listing, status: observable, used_in: [recovery, hazard, uplift, lot], description: "Premium / mid / generic brand tier"}
+  - {name: condition, dtype: categorical, role: feature, known_at: listing, status: observable, used_in: [recovery, hazard, uplift, lot], description: "Graded condition after testing"}
+  - {name: retail_value, dtype: numeric, role: feature, known_at: listing, status: observable, used_in: [recovery, hazard, uplift, lot, match], description: "Recorded retail value from the catalog match (denominator of recovery rate)"}
+  - {name: log_retail_value, dtype: numeric, role: feature, known_at: listing, status: derived, derive: "ln(greatest(retail_value, 1.0))", used_in: [recovery, hazard, uplift], description: "Log of recorded retail value"}
+  - {name: match_confidence, dtype: numeric, role: feature, known_at: listing, status: observable, used_in: [recovery, hazard, uplift, match], description: "Confidence of the Amazon/Walmart catalog match"}
+  - {name: product_age_years, dtype: numeric, role: feature, known_at: listing, status: observable, used_in: [recovery, hazard, uplift, lot], description: "Years since the product model was released"}
+  - {name: title, dtype: text, role: feature, known_at: listing, status: observable, used_in: [recovery], description: "Product title (text features)"}
+  - {name: matched_title, dtype: text, role: context, known_at: listing, status: observable, used_in: [match], description: "Title of the catalog entry matched to the item"}
+  - {name: return_reason, dtype: categorical, role: feature, known_at: receipt, status: ask, used_in: [recovery, hazard], description: "Reason code from the original return"}
+  - {name: weight_class, dtype: numeric, role: feature, known_at: listing, status: observable, used_in: [recovery, hazard, uplift, lot], description: "0 tiny .. 4 bulky; drives shipping and holding cost"}
+  # ---- listing quality / effort ----
+  - {name: photo_count, dtype: numeric, role: feature, known_at: listing, status: observable, used_in: [recovery, hazard, uplift], description: "Number of listing photos"}
+  - {name: receipt_to_listing_days, dtype: numeric, role: feature, known_at: listing, status: observable, used_in: [recovery, hazard], description: "Days between receiving the item and listing it"}
+  # ---- auction mechanics ----
+  - {name: start_bid_pct, dtype: numeric, role: feature, known_at: listing, status: observable, used_in: [recovery, hazard], description: "Opening bid as a share of retail value"}
+  - {name: auction_duration_days, dtype: numeric, role: feature, known_at: listing, status: observable, used_in: [recovery], description: "Scheduled auction length"}
+  - {name: end_dow, dtype: numeric, role: feature, known_at: listing, status: observable, used_in: [recovery], description: "Day of week the auction ends (0=Mon)"}
+  - {name: end_hour, dtype: numeric, role: feature, known_at: listing, status: observable, used_in: [recovery], description: "Hour the auction ends"}
+  - {name: simultaneous_listings, dtype: numeric, role: feature, known_at: listing, status: observable, used_in: [recovery, hazard], description: "Items of the same category listed in the same week (supply glut)"}
+  - {name: listing_moy, dtype: numeric, role: feature, known_at: listing, status: derived, derive: "month(listed_date)", used_in: [recovery, hazard, uplift], description: "Calendar month of listing (seasonality)"}
+  - {name: listing_dow, dtype: numeric, role: feature, known_at: listing, status: derived, derive: "dayofweek(listed_date)", used_in: [recovery, hazard], description: "Day of week of listing"}
+  # ---- lot / source ----
+  - {name: source_id, dtype: categorical, role: feature, known_at: receipt, status: observable, used_in: [recovery, hazard, lot], description: "Where the lot was bought"}
+  - {name: source_type, dtype: categorical, role: feature, known_at: receipt, status: observable, used_in: [recovery, hazard, uplift, lot], description: "Type of source (big-box returns, closeout, broker, ...)"}
+  - {name: region, dtype: categorical, role: feature, known_at: receipt, status: observable, used_in: [recovery, hazard], description: "Sourcing region (new regions appear with the national expansion)"}
+  - {name: manifest_flag, dtype: boolean, role: feature, known_at: receipt, status: observable, used_in: [recovery, lot], description: "Lot arrived with an itemized manifest"}
+  - {name: acquisition_rate, dtype: numeric, role: feature, known_at: receipt, status: derived, derive: "lot_price / nullif(lot_retail_total, 0)", used_in: [recovery, lot], description: "Lot price divided by lot retail value"}
+  - {name: lot_item_count, dtype: numeric, role: feature, known_at: receipt, status: derived, derive: "lot_items", used_in: [lot], description: "Items in the lot"}
+  # ---- experiment arms (design variables, not features) ----
+  - {name: pilot_arm, dtype: categorical, role: context, known_at: listing, status: observable, used_in: [uplift], description: "Randomized channel arm: fixed / auction / not_eligible"}
+  - {name: premium_pct, dtype: numeric, role: context, known_at: listing, status: observable, used_in: [uplift], description: "Randomized premium over the expected auction price"}
+  - {name: photo_arm, dtype: categorical, role: context, known_at: listing, status: observable, used_in: [uplift], description: "Randomized extra-photo arm: none / control / extra"}
+  # ---- costs (read by the economics block) ----
+  - {name: handling_minutes, dtype: numeric, role: cost, known_at: sale, status: observable, used_in: [], description: "Warehouse minutes spent on the item"}
+  - {name: fees, dtype: numeric, role: cost, known_at: sale, status: observable, used_in: [], description: "Payment and marketplace fees"}
+  - {name: shipping_cost, dtype: numeric, role: cost, known_at: sale, status: observable, used_in: [], description: "Shipping subsidy (plus return shipping on refunds)"}
+  - {name: holding_days, dtype: numeric, role: cost, known_at: post_sale, status: observable, used_in: [], description: "Days the item occupied the warehouse"}
+  # ---- outcomes (never allowed as pre-listing features) ----
+  - {name: bidders, dtype: numeric, role: outcome, known_at: post_sale, status: observable, used_in: [], description: "Number of bidders (known only after the auction)"}
+  - {name: watchers, dtype: numeric, role: outcome, known_at: during_listing, status: observable, used_in: [], description: "Watchers while listed (time-varying; excluded from listing-time models)"}
+  - {name: sale_price, dtype: numeric, role: outcome, known_at: sale, status: observable, used_in: [], description: "Price paid by the buyer"}
+  - {name: sold, dtype: boolean, role: outcome, known_at: sale, status: observable, used_in: [], description: "Item sold"}
+  - {name: refund_flag, dtype: boolean, role: outcome, known_at: post_sale, status: observable, used_in: [], description: "Sale was refunded"}
+
+# ---------------------------------------------------------------------
+#  CUSTOM VARIABLES  (examples; disabled).  Uncomment, or add your own rows
+#  to the `variables:` list above.
+#
+#  1) A derived variable defined by SQL over existing columns:
+#     - name: is_bulky
+#       dtype: boolean
+#       role: feature
+#       known_at: listing
+#       status: derived
+#       derive: "weight_class >= 3"
+#       used_in: [recovery, hazard]
+#       description: "Bulky item (needs freight)"
+#
+#  2) A column supplied by the business in data/user_inputs/extra_item_variables.csv
+#     (must contain item_id plus the column):
+#     - name: pallet_position
+#       dtype: numeric
+#       role: feature
+#       known_at: receipt
+#       status: ask
+#       source: user_csv
+#       used_in: [recovery]
+#       description: "Position of the item on its pallet"
+# ---------------------------------------------------------------------
+custom_variables: []

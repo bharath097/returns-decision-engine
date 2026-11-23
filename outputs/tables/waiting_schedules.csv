@@ -1,0 +1,631 @@
+day,price_multiple,extrapolated,category,kind
+1,1.3,False,Apparel_shoes,full ladder
+2,1.3,False,Apparel_shoes,full ladder
+3,1.3,False,Apparel_shoes,full ladder
+4,1.3,False,Apparel_shoes,full ladder
+5,1.2,False,Apparel_shoes,full ladder
+6,1.2,False,Apparel_shoes,full ladder
+7,1.1,False,Apparel_shoes,full ladder
+8,1.05,True,Apparel_shoes,full ladder
+9,1.0,True,Apparel_shoes,full ladder
+10,0.95,True,Apparel_shoes,full ladder
+11,0.9,True,Apparel_shoes,full ladder
+12,0.85,True,Apparel_shoes,full ladder
+13,0.8,True,Apparel_shoes,full ladder
+14,0.75,True,Apparel_shoes,full ladder
+15,0.7,True,Apparel_shoes,full ladder
+16,0.7,True,Apparel_shoes,full ladder
+17,0.7,True,Apparel_shoes,full ladder
+18,0.7,True,Apparel_shoes,full ladder
+19,0.7,True,Apparel_shoes,full ladder
+20,0.7,True,Apparel_shoes,full ladder
+21,0.7,True,Apparel_shoes,full ladder
+1,1.3,False,Apparel_shoes,supported range only
+2,1.3,False,Apparel_shoes,supported range only
+3,1.3,False,Apparel_shoes,supported range only
+4,1.2,False,Apparel_shoes,supported range only
+5,1.2,False,Apparel_shoes,supported range only
+6,1.1,False,Apparel_shoes,supported range only
+7,1.1,False,Apparel_shoes,supported range only
+8,1.1,False,Apparel_shoes,supported range only
+9,1.1,False,Apparel_shoes,supported range only
+10,1.1,False,Apparel_shoes,supported range only
+11,1.1,False,Apparel_shoes,supported range only
+12,1.1,False,Apparel_shoes,supported range only
+13,1.1,False,Apparel_shoes,supported range only
+14,1.1,False,Apparel_shoes,supported range only
+15,1.1,False,Apparel_shoes,supported range only
+16,1.1,False,Apparel_shoes,supported range only
+17,1.1,False,Apparel_shoes,supported range only
+18,1.1,False,Apparel_shoes,supported range only
+19,1.1,False,Apparel_shoes,supported range only
+20,1.1,False,Apparel_shoes,supported range only
+21,1.1,False,Apparel_shoes,supported range only
+1,1.3,False,Audio_wearables,full ladder
+2,1.3,False,Audio_wearables,full ladder
+3,1.2,False,Audio_wearables,full ladder
+4,1.2,False,Audio_wearables,full ladder
+5,1.15,False,Audio_wearables,full ladder
+6,1.1,False,Audio_wearables,full ladder
+7,1.05,True,Audio_wearables,full ladder
+8,1.05,True,Audio_wearables,full ladder
+9,1.0,True,Audio_wearables,full ladder
+10,0.95,True,Audio_wearables,full ladder
+11,0.95,True,Audio_wearables,full ladder
+12,0.9,True,Audio_wearables,full ladder
+13,0.9,True,Audio_wearables,full ladder
+14,0.9,True,Audio_wearables,full ladder
+15,0.85,True,Audio_wearables,full ladder
+16,0.85,True,Audio_wearables,full ladder
+17,0.8,True,Audio_wearables,full ladder
+18,0.8,True,Audio_wearables,full ladder
+19,0.8,True,Audio_wearables,full ladder
+20,0.8,True,Audio_wearables,full ladder
+21,0.75,True,Audio_wearables,full ladder
+1,1.3,False,Audio_wearables,supported range only
+2,1.2,False,Audio_wearables,supported range only
+3,1.2,False,Audio_wearables,supported range only
+4,1.15,False,Audio_wearables,supported range only
+5,1.1,False,Audio_wearables,supported range only
+6,1.1,False,Audio_wearables,supported range only
+7,1.1,False,Audio_wearables,supported range only
+8,1.1,False,Audio_wearables,supported range only
+9,1.1,False,Audio_wearables,supported range only
+10,1.1,False,Audio_wearables,supported range only
+11,1.1,False,Audio_wearables,supported range only
+12,1.1,False,Audio_wearables,supported range only
+13,1.1,False,Audio_wearables,supported range only
+14,1.1,False,Audio_wearables,supported range only
+15,1.1,False,Audio_wearables,supported range only
+16,1.1,False,Audio_wearables,supported range only
+17,1.1,False,Audio_wearables,supported range only
+18,1.1,False,Audio_wearables,supported range only
+19,1.1,False,Audio_wearables,supported range only
+20,1.1,False,Audio_wearables,supported range only
+21,1.1,False,Audio_wearables,supported range only
+1,1.2,False,Beauty_health,full ladder
+2,1.15,False,Beauty_health,full ladder
+3,1.15,False,Beauty_health,full ladder
+4,1.1,False,Beauty_health,full ladder
+5,1.05,True,Beauty_health,full ladder
+6,1.0,True,Beauty_health,full ladder
+7,0.95,True,Beauty_health,full ladder
+8,0.9,True,Beauty_health,full ladder
+9,0.85,True,Beauty_health,full ladder
+10,0.8,True,Beauty_health,full ladder
+11,0.75,True,Beauty_health,full ladder
+12,0.7,True,Beauty_health,full ladder
+13,0.7,True,Beauty_health,full ladder
+14,0.7,True,Beauty_health,full ladder
+15,0.7,True,Beauty_health,full ladder
+16,0.7,True,Beauty_health,full ladder
+17,0.7,True,Beauty_health,full ladder
+18,0.7,True,Beauty_health,full ladder
+19,0.7,True,Beauty_health,full ladder
+20,0.7,True,Beauty_health,full ladder
+21,0.7,True,Beauty_health,full ladder
+1,1.1,False,Beauty_health,supported range only
+2,1.1,False,Beauty_health,supported range only
+3,1.1,False,Beauty_health,supported range only
+4,1.1,False,Beauty_health,supported range only
+5,1.1,False,Beauty_health,supported range only
+6,1.1,False,Beauty_health,supported range only
+7,1.1,False,Beauty_health,supported range only
+8,1.1,False,Beauty_health,supported range only
+9,1.1,False,Beauty_health,supported range only
+10,1.1,False,Beauty_health,supported range only
+11,1.1,False,Beauty_health,supported range only
+12,1.1,False,Beauty_health,supported range only
+13,1.1,False,Beauty_health,supported range only
+14,1.1,False,Beauty_health,supported range only
+15,1.1,False,Beauty_health,supported range only
+16,1.1,False,Beauty_health,supported range only
+17,1.1,False,Beauty_health,supported range only
+18,1.1,False,Beauty_health,supported range only
+19,1.1,False,Beauty_health,supported range only
+20,1.1,False,Beauty_health,supported range only
+21,1.1,False,Beauty_health,supported range only
+1,1.3,False,Furniture,full ladder
+2,1.3,False,Furniture,full ladder
+3,1.3,False,Furniture,full ladder
+4,1.3,False,Furniture,full ladder
+5,1.3,False,Furniture,full ladder
+6,1.3,False,Furniture,full ladder
+7,1.3,False,Furniture,full ladder
+8,1.3,False,Furniture,full ladder
+9,1.3,False,Furniture,full ladder
+10,1.3,False,Furniture,full ladder
+11,1.3,False,Furniture,full ladder
+12,1.3,False,Furniture,full ladder
+13,1.3,False,Furniture,full ladder
+14,1.3,False,Furniture,full ladder
+15,1.3,False,Furniture,full ladder
+16,1.3,False,Furniture,full ladder
+17,1.3,False,Furniture,full ladder
+18,0.7,True,Furniture,full ladder
+19,0.7,True,Furniture,full ladder
+20,0.7,True,Furniture,full ladder
+21,0.7,True,Furniture,full ladder
+1,1.3,False,Furniture,supported range only
+2,1.3,False,Furniture,supported range only
+3,1.3,False,Furniture,supported range only
+4,1.3,False,Furniture,supported range only
+5,1.3,False,Furniture,supported range only
+6,1.3,False,Furniture,supported range only
+7,1.3,False,Furniture,supported range only
+8,1.3,False,Furniture,supported range only
+9,1.3,False,Furniture,supported range only
+10,1.3,False,Furniture,supported range only
+11,1.3,False,Furniture,supported range only
+12,1.3,False,Furniture,supported range only
+13,1.3,False,Furniture,supported range only
+14,1.3,False,Furniture,supported range only
+15,1.3,False,Furniture,supported range only
+16,1.3,False,Furniture,supported range only
+17,1.3,False,Furniture,supported range only
+18,1.1,False,Furniture,supported range only
+19,1.1,False,Furniture,supported range only
+20,1.1,False,Furniture,supported range only
+21,1.1,False,Furniture,supported range only
+1,1.2,False,Gaming,full ladder
+2,1.2,False,Gaming,full ladder
+3,1.15,False,Gaming,full ladder
+4,1.1,False,Gaming,full ladder
+5,1.1,False,Gaming,full ladder
+6,1.05,True,Gaming,full ladder
+7,1.0,True,Gaming,full ladder
+8,1.0,True,Gaming,full ladder
+9,0.95,True,Gaming,full ladder
+10,0.95,True,Gaming,full ladder
+11,0.9,True,Gaming,full ladder
+12,0.9,True,Gaming,full ladder
+13,0.85,True,Gaming,full ladder
+14,0.85,True,Gaming,full ladder
+15,0.85,True,Gaming,full ladder
+16,0.8,True,Gaming,full ladder
+17,0.8,True,Gaming,full ladder
+18,0.8,True,Gaming,full ladder
+19,0.8,True,Gaming,full ladder
+20,0.75,True,Gaming,full ladder
+21,0.75,True,Gaming,full ladder
+1,1.2,False,Gaming,supported range only
+2,1.15,False,Gaming,supported range only
+3,1.15,False,Gaming,supported range only
+4,1.1,False,Gaming,supported range only
+5,1.1,False,Gaming,supported range only
+6,1.1,False,Gaming,supported range only
+7,1.1,False,Gaming,supported range only
+8,1.1,False,Gaming,supported range only
+9,1.1,False,Gaming,supported range only
+10,1.1,False,Gaming,supported range only
+11,1.1,False,Gaming,supported range only
+12,1.1,False,Gaming,supported range only
+13,1.1,False,Gaming,supported range only
+14,1.1,False,Gaming,supported range only
+15,1.1,False,Gaming,supported range only
+16,1.1,False,Gaming,supported range only
+17,1.1,False,Gaming,supported range only
+18,1.1,False,Gaming,supported range only
+19,1.1,False,Gaming,supported range only
+20,1.1,False,Gaming,supported range only
+21,1.1,False,Gaming,supported range only
+1,1.3,False,Home_decor,full ladder
+2,1.3,False,Home_decor,full ladder
+3,1.3,False,Home_decor,full ladder
+4,1.3,False,Home_decor,full ladder
+5,1.3,False,Home_decor,full ladder
+6,1.3,False,Home_decor,full ladder
+7,1.3,False,Home_decor,full ladder
+8,1.3,False,Home_decor,full ladder
+9,1.2,False,Home_decor,full ladder
+10,1.1,False,Home_decor,full ladder
+11,1.0,True,Home_decor,full ladder
+12,0.9,True,Home_decor,full ladder
+13,0.8,True,Home_decor,full ladder
+14,0.7,True,Home_decor,full ladder
+15,0.7,True,Home_decor,full ladder
+16,0.7,True,Home_decor,full ladder
+17,0.7,True,Home_decor,full ladder
+18,0.7,True,Home_decor,full ladder
+19,0.7,True,Home_decor,full ladder
+20,0.7,True,Home_decor,full ladder
+21,0.7,True,Home_decor,full ladder
+1,1.3,False,Home_decor,supported range only
+2,1.3,False,Home_decor,supported range only
+3,1.3,False,Home_decor,supported range only
+4,1.3,False,Home_decor,supported range only
+5,1.3,False,Home_decor,supported range only
+6,1.2,False,Home_decor,supported range only
+7,1.1,False,Home_decor,supported range only
+8,1.1,False,Home_decor,supported range only
+9,1.1,False,Home_decor,supported range only
+10,1.1,False,Home_decor,supported range only
+11,1.1,False,Home_decor,supported range only
+12,1.1,False,Home_decor,supported range only
+13,1.1,False,Home_decor,supported range only
+14,1.1,False,Home_decor,supported range only
+15,1.1,False,Home_decor,supported range only
+16,1.1,False,Home_decor,supported range only
+17,1.1,False,Home_decor,supported range only
+18,1.1,False,Home_decor,supported range only
+19,1.1,False,Home_decor,supported range only
+20,1.1,False,Home_decor,supported range only
+21,1.1,False,Home_decor,supported range only
+1,1.3,False,Laptops_current,full ladder
+2,1.3,False,Laptops_current,full ladder
+3,1.3,False,Laptops_current,full ladder
+4,1.3,False,Laptops_current,full ladder
+5,1.3,False,Laptops_current,full ladder
+6,1.3,False,Laptops_current,full ladder
+7,1.3,False,Laptops_current,full ladder
+8,1.3,False,Laptops_current,full ladder
+9,1.2,False,Laptops_current,full ladder
+10,1.2,False,Laptops_current,full ladder
+11,1.2,False,Laptops_current,full ladder
+12,1.2,False,Laptops_current,full ladder
+13,1.15,False,Laptops_current,full ladder
+14,1.15,False,Laptops_current,full ladder
+15,1.15,False,Laptops_current,full ladder
+16,1.15,False,Laptops_current,full ladder
+17,1.1,False,Laptops_current,full ladder
+18,1.1,False,Laptops_current,full ladder
+19,1.1,False,Laptops_current,full ladder
+20,1.1,False,Laptops_current,full ladder
+21,1.1,False,Laptops_current,full ladder
+1,1.3,False,Laptops_current,supported range only
+2,1.3,False,Laptops_current,supported range only
+3,1.3,False,Laptops_current,supported range only
+4,1.3,False,Laptops_current,supported range only
+5,1.3,False,Laptops_current,supported range only
+6,1.3,False,Laptops_current,supported range only
+7,1.3,False,Laptops_current,supported range only
+8,1.3,False,Laptops_current,supported range only
+9,1.2,False,Laptops_current,supported range only
+10,1.2,False,Laptops_current,supported range only
+11,1.2,False,Laptops_current,supported range only
+12,1.2,False,Laptops_current,supported range only
+13,1.15,False,Laptops_current,supported range only
+14,1.15,False,Laptops_current,supported range only
+15,1.15,False,Laptops_current,supported range only
+16,1.15,False,Laptops_current,supported range only
+17,1.1,False,Laptops_current,supported range only
+18,1.1,False,Laptops_current,supported range only
+19,1.1,False,Laptops_current,supported range only
+20,1.1,False,Laptops_current,supported range only
+21,1.1,False,Laptops_current,supported range only
+1,1.3,False,Laptops_older,full ladder
+2,1.3,False,Laptops_older,full ladder
+3,1.3,False,Laptops_older,full ladder
+4,1.2,False,Laptops_older,full ladder
+5,1.2,False,Laptops_older,full ladder
+6,1.15,False,Laptops_older,full ladder
+7,1.15,False,Laptops_older,full ladder
+8,1.1,False,Laptops_older,full ladder
+9,1.05,True,Laptops_older,full ladder
+10,1.05,True,Laptops_older,full ladder
+11,1.0,True,Laptops_older,full ladder
+12,1.0,True,Laptops_older,full ladder
+13,0.95,True,Laptops_older,full ladder
+14,0.9,True,Laptops_older,full ladder
+15,0.9,True,Laptops_older,full ladder
+16,0.85,True,Laptops_older,full ladder
+17,0.85,True,Laptops_older,full ladder
+18,0.8,True,Laptops_older,full ladder
+19,0.8,True,Laptops_older,full ladder
+20,0.75,True,Laptops_older,full ladder
+21,0.75,True,Laptops_older,full ladder
+1,1.3,False,Laptops_older,supported range only
+2,1.3,False,Laptops_older,supported range only
+3,1.2,False,Laptops_older,supported range only
+4,1.2,False,Laptops_older,supported range only
+5,1.15,False,Laptops_older,supported range only
+6,1.15,False,Laptops_older,supported range only
+7,1.1,False,Laptops_older,supported range only
+8,1.1,False,Laptops_older,supported range only
+9,1.1,False,Laptops_older,supported range only
+10,1.1,False,Laptops_older,supported range only
+11,1.1,False,Laptops_older,supported range only
+12,1.1,False,Laptops_older,supported range only
+13,1.1,False,Laptops_older,supported range only
+14,1.1,False,Laptops_older,supported range only
+15,1.1,False,Laptops_older,supported range only
+16,1.1,False,Laptops_older,supported range only
+17,1.1,False,Laptops_older,supported range only
+18,1.1,False,Laptops_older,supported range only
+19,1.1,False,Laptops_older,supported range only
+20,1.1,False,Laptops_older,supported range only
+21,1.1,False,Laptops_older,supported range only
+1,1.3,False,Large_appliances,full ladder
+2,1.3,False,Large_appliances,full ladder
+3,1.3,False,Large_appliances,full ladder
+4,1.3,False,Large_appliances,full ladder
+5,1.3,False,Large_appliances,full ladder
+6,1.3,False,Large_appliances,full ladder
+7,1.3,False,Large_appliances,full ladder
+8,1.3,False,Large_appliances,full ladder
+9,1.3,False,Large_appliances,full ladder
+10,1.3,False,Large_appliances,full ladder
+11,1.3,False,Large_appliances,full ladder
+12,1.2,False,Large_appliances,full ladder
+13,1.15,False,Large_appliances,full ladder
+14,1.05,True,Large_appliances,full ladder
+15,1.0,True,Large_appliances,full ladder
+16,0.9,True,Large_appliances,full ladder
+17,0.8,True,Large_appliances,full ladder
+18,0.75,True,Large_appliances,full ladder
+19,0.7,True,Large_appliances,full ladder
+20,0.7,True,Large_appliances,full ladder
+21,0.7,True,Large_appliances,full ladder
+1,1.3,False,Large_appliances,supported range only
+2,1.3,False,Large_appliances,supported range only
+3,1.3,False,Large_appliances,supported range only
+4,1.3,False,Large_appliances,supported range only
+5,1.3,False,Large_appliances,supported range only
+6,1.3,False,Large_appliances,supported range only
+7,1.3,False,Large_appliances,supported range only
+8,1.3,False,Large_appliances,supported range only
+9,1.3,False,Large_appliances,supported range only
+10,1.3,False,Large_appliances,supported range only
+11,1.3,False,Large_appliances,supported range only
+12,1.2,False,Large_appliances,supported range only
+13,1.1,False,Large_appliances,supported range only
+14,1.1,False,Large_appliances,supported range only
+15,1.1,False,Large_appliances,supported range only
+16,1.1,False,Large_appliances,supported range only
+17,1.1,False,Large_appliances,supported range only
+18,1.1,False,Large_appliances,supported range only
+19,1.1,False,Large_appliances,supported range only
+20,1.1,False,Large_appliances,supported range only
+21,1.1,False,Large_appliances,supported range only
+1,0.7,True,Low_value_bundles,full ladder
+2,0.7,True,Low_value_bundles,full ladder
+3,0.7,True,Low_value_bundles,full ladder
+4,0.7,True,Low_value_bundles,full ladder
+5,0.7,True,Low_value_bundles,full ladder
+6,0.7,True,Low_value_bundles,full ladder
+7,0.7,True,Low_value_bundles,full ladder
+8,0.7,True,Low_value_bundles,full ladder
+9,0.7,True,Low_value_bundles,full ladder
+10,0.7,True,Low_value_bundles,full ladder
+11,0.7,True,Low_value_bundles,full ladder
+12,0.7,True,Low_value_bundles,full ladder
+13,0.7,True,Low_value_bundles,full ladder
+14,0.7,True,Low_value_bundles,full ladder
+15,0.7,True,Low_value_bundles,full ladder
+16,0.7,True,Low_value_bundles,full ladder
+17,0.7,True,Low_value_bundles,full ladder
+18,0.7,True,Low_value_bundles,full ladder
+19,0.7,True,Low_value_bundles,full ladder
+20,0.7,True,Low_value_bundles,full ladder
+21,0.7,True,Low_value_bundles,full ladder
+1,1.1,False,Low_value_bundles,supported range only
+2,1.1,False,Low_value_bundles,supported range only
+3,1.1,False,Low_value_bundles,supported range only
+4,1.1,False,Low_value_bundles,supported range only
+5,1.1,False,Low_value_bundles,supported range only
+6,1.1,False,Low_value_bundles,supported range only
+7,1.1,False,Low_value_bundles,supported range only
+8,1.1,False,Low_value_bundles,supported range only
+9,1.1,False,Low_value_bundles,supported range only
+10,1.1,False,Low_value_bundles,supported range only
+11,1.1,False,Low_value_bundles,supported range only
+12,1.1,False,Low_value_bundles,supported range only
+13,1.1,False,Low_value_bundles,supported range only
+14,1.1,False,Low_value_bundles,supported range only
+15,1.1,False,Low_value_bundles,supported range only
+16,1.1,False,Low_value_bundles,supported range only
+17,1.1,False,Low_value_bundles,supported range only
+18,1.1,False,Low_value_bundles,supported range only
+19,1.1,False,Low_value_bundles,supported range only
+20,1.1,False,Low_value_bundles,supported range only
+21,1.1,False,Low_value_bundles,supported range only
+1,1.3,False,Small_appliances,full ladder
+2,1.3,False,Small_appliances,full ladder
+3,1.2,False,Small_appliances,full ladder
+4,1.15,False,Small_appliances,full ladder
+5,1.1,False,Small_appliances,full ladder
+6,1.05,True,Small_appliances,full ladder
+7,1.05,True,Small_appliances,full ladder
+8,1.0,True,Small_appliances,full ladder
+9,0.95,True,Small_appliances,full ladder
+10,0.9,True,Small_appliances,full ladder
+11,0.85,True,Small_appliances,full ladder
+12,0.8,True,Small_appliances,full ladder
+13,0.75,True,Small_appliances,full ladder
+14,0.75,True,Small_appliances,full ladder
+15,0.7,True,Small_appliances,full ladder
+16,0.7,True,Small_appliances,full ladder
+17,0.7,True,Small_appliances,full ladder
+18,0.7,True,Small_appliances,full ladder
+19,0.7,True,Small_appliances,full ladder
+20,0.7,True,Small_appliances,full ladder
+21,0.7,True,Small_appliances,full ladder
+1,1.2,False,Small_appliances,supported range only
+2,1.2,False,Small_appliances,supported range only
+3,1.15,False,Small_appliances,supported range only
+4,1.1,False,Small_appliances,supported range only
+5,1.1,False,Small_appliances,supported range only
+6,1.1,False,Small_appliances,supported range only
+7,1.1,False,Small_appliances,supported range only
+8,1.1,False,Small_appliances,supported range only
+9,1.1,False,Small_appliances,supported range only
+10,1.1,False,Small_appliances,supported range only
+11,1.1,False,Small_appliances,supported range only
+12,1.1,False,Small_appliances,supported range only
+13,1.1,False,Small_appliances,supported range only
+14,1.1,False,Small_appliances,supported range only
+15,1.1,False,Small_appliances,supported range only
+16,1.1,False,Small_appliances,supported range only
+17,1.1,False,Small_appliances,supported range only
+18,1.1,False,Small_appliances,supported range only
+19,1.1,False,Small_appliances,supported range only
+20,1.1,False,Small_appliances,supported range only
+21,1.1,False,Small_appliances,supported range only
+1,1.3,False,Smartphones,full ladder
+2,1.3,False,Smartphones,full ladder
+3,1.3,False,Smartphones,full ladder
+4,1.3,False,Smartphones,full ladder
+5,1.3,False,Smartphones,full ladder
+6,1.3,False,Smartphones,full ladder
+7,1.3,False,Smartphones,full ladder
+8,1.2,False,Smartphones,full ladder
+9,1.2,False,Smartphones,full ladder
+10,1.2,False,Smartphones,full ladder
+11,1.2,False,Smartphones,full ladder
+12,1.15,False,Smartphones,full ladder
+13,1.15,False,Smartphones,full ladder
+14,1.15,False,Smartphones,full ladder
+15,1.1,False,Smartphones,full ladder
+16,1.1,False,Smartphones,full ladder
+17,1.1,False,Smartphones,full ladder
+18,1.1,False,Smartphones,full ladder
+19,1.1,False,Smartphones,full ladder
+20,1.1,False,Smartphones,full ladder
+21,1.05,True,Smartphones,full ladder
+1,1.3,False,Smartphones,supported range only
+2,1.3,False,Smartphones,supported range only
+3,1.3,False,Smartphones,supported range only
+4,1.3,False,Smartphones,supported range only
+5,1.3,False,Smartphones,supported range only
+6,1.3,False,Smartphones,supported range only
+7,1.3,False,Smartphones,supported range only
+8,1.2,False,Smartphones,supported range only
+9,1.2,False,Smartphones,supported range only
+10,1.2,False,Smartphones,supported range only
+11,1.2,False,Smartphones,supported range only
+12,1.15,False,Smartphones,supported range only
+13,1.15,False,Smartphones,supported range only
+14,1.15,False,Smartphones,supported range only
+15,1.1,False,Smartphones,supported range only
+16,1.1,False,Smartphones,supported range only
+17,1.1,False,Smartphones,supported range only
+18,1.1,False,Smartphones,supported range only
+19,1.1,False,Smartphones,supported range only
+20,1.1,False,Smartphones,supported range only
+21,1.1,False,Smartphones,supported range only
+1,1.3,False,TVs,full ladder
+2,1.2,False,TVs,full ladder
+3,1.15,False,TVs,full ladder
+4,1.15,False,TVs,full ladder
+5,1.1,False,TVs,full ladder
+6,1.1,False,TVs,full ladder
+7,1.05,True,TVs,full ladder
+8,1.0,True,TVs,full ladder
+9,1.0,True,TVs,full ladder
+10,0.95,True,TVs,full ladder
+11,0.95,True,TVs,full ladder
+12,0.9,True,TVs,full ladder
+13,0.9,True,TVs,full ladder
+14,0.9,True,TVs,full ladder
+15,0.85,True,TVs,full ladder
+16,0.85,True,TVs,full ladder
+17,0.85,True,TVs,full ladder
+18,0.8,True,TVs,full ladder
+19,0.8,True,TVs,full ladder
+20,0.8,True,TVs,full ladder
+21,0.8,True,TVs,full ladder
+1,1.2,False,TVs,supported range only
+2,1.2,False,TVs,supported range only
+3,1.15,False,TVs,supported range only
+4,1.15,False,TVs,supported range only
+5,1.1,False,TVs,supported range only
+6,1.1,False,TVs,supported range only
+7,1.1,False,TVs,supported range only
+8,1.1,False,TVs,supported range only
+9,1.1,False,TVs,supported range only
+10,1.1,False,TVs,supported range only
+11,1.1,False,TVs,supported range only
+12,1.1,False,TVs,supported range only
+13,1.1,False,TVs,supported range only
+14,1.1,False,TVs,supported range only
+15,1.1,False,TVs,supported range only
+16,1.1,False,TVs,supported range only
+17,1.1,False,TVs,supported range only
+18,1.1,False,TVs,supported range only
+19,1.1,False,TVs,supported range only
+20,1.1,False,TVs,supported range only
+21,1.1,False,TVs,supported range only
+1,1.2,False,Tools,full ladder
+2,1.2,False,Tools,full ladder
+3,1.15,False,Tools,full ladder
+4,1.15,False,Tools,full ladder
+5,1.1,False,Tools,full ladder
+6,1.05,True,Tools,full ladder
+7,1.0,True,Tools,full ladder
+8,1.0,True,Tools,full ladder
+9,0.95,True,Tools,full ladder
+10,0.9,True,Tools,full ladder
+11,0.85,True,Tools,full ladder
+12,0.85,True,Tools,full ladder
+13,0.8,True,Tools,full ladder
+14,0.75,True,Tools,full ladder
+15,0.75,True,Tools,full ladder
+16,0.7,True,Tools,full ladder
+17,0.7,True,Tools,full ladder
+18,0.7,True,Tools,full ladder
+19,0.7,True,Tools,full ladder
+20,0.7,True,Tools,full ladder
+21,0.7,True,Tools,full ladder
+1,1.15,False,Tools,supported range only
+2,1.1,False,Tools,supported range only
+3,1.1,False,Tools,supported range only
+4,1.1,False,Tools,supported range only
+5,1.1,False,Tools,supported range only
+6,1.1,False,Tools,supported range only
+7,1.1,False,Tools,supported range only
+8,1.1,False,Tools,supported range only
+9,1.1,False,Tools,supported range only
+10,1.1,False,Tools,supported range only
+11,1.1,False,Tools,supported range only
+12,1.1,False,Tools,supported range only
+13,1.1,False,Tools,supported range only
+14,1.1,False,Tools,supported range only
+15,1.1,False,Tools,supported range only
+16,1.1,False,Tools,supported range only
+17,1.1,False,Tools,supported range only
+18,1.1,False,Tools,supported range only
+19,1.1,False,Tools,supported range only
+20,1.1,False,Tools,supported range only
+21,1.1,False,Tools,supported range only
+1,1.2,False,Toys_games,full ladder
+2,1.15,False,Toys_games,full ladder
+3,1.1,False,Toys_games,full ladder
+4,1.0,True,Toys_games,full ladder
+5,0.95,True,Toys_games,full ladder
+6,0.9,True,Toys_games,full ladder
+7,0.8,True,Toys_games,full ladder
+8,0.75,True,Toys_games,full ladder
+9,0.7,True,Toys_games,full ladder
+10,0.7,True,Toys_games,full ladder
+11,0.7,True,Toys_games,full ladder
+12,0.7,True,Toys_games,full ladder
+13,0.7,True,Toys_games,full ladder
+14,0.7,True,Toys_games,full ladder
+15,0.7,True,Toys_games,full ladder
+16,0.7,True,Toys_games,full ladder
+17,0.7,True,Toys_games,full ladder
+18,0.7,True,Toys_games,full ladder
+19,0.7,True,Toys_games,full ladder
+20,0.7,True,Toys_games,full ladder
+21,0.7,True,Toys_games,full ladder
+1,1.1,False,Toys_games,supported range only
+2,1.1,False,Toys_games,supported range only
+3,1.1,False,Toys_games,supported range only
+4,1.1,False,Toys_games,supported range only
+5,1.1,False,Toys_games,supported range only
+6,1.1,False,Toys_games,supported range only
+7,1.1,False,Toys_games,supported range only
+8,1.1,False,Toys_games,supported range only
+9,1.1,False,Toys_games,supported range only
+10,1.1,False,Toys_games,supported range only
+11,1.1,False,Toys_games,supported range only
+12,1.1,False,Toys_games,supported range only
+13,1.1,False,Toys_games,supported range only
+14,1.1,False,Toys_games,supported range only
+15,1.1,False,Toys_games,supported range only
+16,1.1,False,Toys_games,supported range only
+17,1.1,False,Toys_games,supported range only
+18,1.1,False,Toys_games,supported range only
+19,1.1,False,Toys_games,supported range only
+20,1.1,False,Toys_games,supported range only
+21,1.1,False,Toys_games,supported range only

@@ -1,0 +1,13 @@
+question,ambiguity,resolution
+What were sales last week?,sales,asked
+What were gross sales last week by category?,,answered
+net sales in October 2026,,answered
+What was recovery by category last month?,,answered
+recovery on sold items by source type in Q3,,answered
+profit by source last month,,answered
+How many items sold yesterday?,,answered
+Show me revenue,revenue,asked
+sell-through by channel last month,,answered
+average days to close by category in September 2026,,answered
+what is the weather?,metric,unknown
+net revenue by month in Q3,,answered

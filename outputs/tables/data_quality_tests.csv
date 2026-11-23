@@ -1,0 +1,16 @@
+test,severity,failing_rows,status
+closed_items_have_close_date,error,0,pass
+dates_ordered,error,0,pass
+every_item_has_one_outcome,error,0,pass
+freight_allocation_ties_out,error,0,pass
+items_reference_lots_and_sources,error,0,pass
+lot_cost_allocation_ties_out,error,0,pass
+non_negative_costs,error,0,pass
+open_items_have_no_outcome,error,0,pass
+premium_only_on_fixed_items,error,0,pass
+raw_duplicate_items_found,warn,1097,warn
+raw_duplicate_lots_found,warn,36,warn
+retail_value_positive,error,0,pass
+sold_consistent_with_price,error,0,pass
+unique_item_id,error,0,pass
+unique_lot_id,error,0,pass

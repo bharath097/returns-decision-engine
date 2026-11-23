@@ -1,0 +1,168 @@
+# =====================================================================
+#  SIMULATION PARAMETERS  --  ALL VALUES ARE PLACEHOLDERS (NOT BUYWANDER DATA)
+#  Every number here is an adjustable assumption used only to generate
+#  fictional data with KNOWN truth, so the methods can be validated.
+#  Replace the whole simulated layer with real tables to run on real data.
+# =====================================================================
+seed: 20261122
+timeline:
+  start_date: "2024-11-01"
+  end_date: "2026-10-31"          # data cutoff: items not finished by then are OPEN (censored)
+  pilot_start: "2025-11-01"       # randomized fixed-price pilot begins
+  photo_experiment_start: "2025-05-01"
+  expansion_start: "2026-06-01"   # national expansion: new sources, new mix -> covariate shift
+scale:
+  n_lots: 800
+  items_per_lot_median: 80
+  items_per_lot_sigma: 0.55
+  items_per_lot_min: 25
+  items_per_lot_max: 400
+  mc_draws_truth: 120             # Monte Carlo draws used to compute true expected auction outcomes
+auction:
+  sigma_valuation: 0.22           # spread of bidder valuations around market value
+  reseller_discount: 0.85         # resellers bid at this multiple of market value
+  max_bidders: 14
+  start_bid_pct: [0.05, 0.15, 0.30]
+  start_bid_probs: [0.50, 0.35, 0.15]
+  start_bid_lambda_penalty: 1.3   # higher opening bid -> fewer bidders
+  duration_days: [3, 5, 7]
+  duration_probs: [0.60, 0.25, 0.15]
+  glut_elasticity: -0.12          # many similar items listed in the same week lower demand
+fixed_price:
+  rollover_days: 21               # unsold fixed-price items roll into an auction after this many days
+  rollover_lambda_factor: 0.90
+  frailty_sigma: 0.30             # unobserved item-level visibility (heterogeneity)
+  max_daily_hazard: 0.90
+pilot:
+  eligible_min_retail: 20.0
+  p_fixed: 0.45                   # randomization probability into the fixed-price arm
+  premium_grid: [0.10, 0.20, 0.30]
+production_model:
+  bias_log: -0.03                 # the "current" production model's systematic bias (log scale)
+  noise_log: 0.08                 # small noise on a stale category x condition lookup (no item-level signal)
+photos:
+  baseline_base: 3
+  per_value_threshold: [150, 400, 1000]
+  extra_photos_in_experiment: 3
+  experiment_share: 0.20
+  experiment_p_treat: 0.50
+  decay_rate: 0.5                 # diminishing returns: uplift = beta * (1 - exp(-rate * photos))
+  refund_photo_effect: -0.12      # each photo lowers refund odds (log scale)
+  minutes_per_photo: 0.6
+conditions:
+  names: [new_sealed, open_box, like_new, used, damaged]
+  mu_mult: [1.18, 1.00, 0.92, 0.72, 0.38]
+  handling_mult: [0.7, 1.0, 1.1, 1.4, 1.8]
+  refund_mult: [0.5, 1.0, 1.0, 1.4, 2.2]
+brand_tiers:
+  names: [premium, mid, generic]
+  probs: [0.18, 0.52, 0.30]
+  retail_mult: [1.5, 1.0, 0.7]
+  mu_adj: [0.06, 0.0, -0.05]
+  match_correct_prob: [0.96, 0.93, 0.86]
+season:                            # multiplier on market value and bidder arrival by calendar month
+  1: 0.96
+  2: 0.97
+  3: 0.99
+  4: 1.00
+  5: 1.00
+  6: 0.99
+  7: 0.98
+  8: 0.99
+  9: 1.00
+  10: 1.03
+  11: 1.10
+  12: 1.12
+catalog:
+  models_per_category: 40
+  price_noise: 0.08
+  wrong_match_same_category_prob: 0.70
+  wrong_match_near_miss_prob: 0.55      # share of wrong matches that are a neighbouring model of the same brand
+  wrong_match_price_ratio: [0.3, 3.5]   # a wrong match is a similar product: recorded/true retail bounded
+  audit_share: 0.06               # share of items with a human-audited match label
+listing:
+  receipt_to_listing_mean_days: 5.0
+  receipt_to_listing_shape: 2.0
+  p_blind_lot_wrong_match_extra: 0.04
+costs:
+  handling_noise_sigma: 0.25
+  shipping_noise_sigma: 0.15
+  liquidation_cost_pct: 0.10
+  inbound_freight_per_item_by_weight: [0.35, 0.60, 1.10, 2.40, 5.50]
+lot_pricing:
+  manifest_noise_scale: 0.6       # manifested lots are valued more accurately
+  margin_sd_within_source: 0.05
+  discount_to_manifest: 0.0
+base_condition_probs:              # per source type
+  big_box_returns:      [0.10, 0.28, 0.27, 0.25, 0.10]
+  ecommerce_returns:    [0.12, 0.30, 0.28, 0.22, 0.08]
+  overstock_closeout:   [0.55, 0.25, 0.10, 0.07, 0.03]
+  broker_liquidation:   [0.08, 0.22, 0.22, 0.30, 0.18]
+  regional_marketplace: [0.18, 0.26, 0.22, 0.24, 0.10]
+source_types:
+  big_box_returns:
+    n_sources: 8
+    manifest_prob: 0.55
+    est_noise: 0.12
+    margin_mean: 0.20
+    margin_sd: 0.07
+    quality_sd: 0.05
+    reliability_sd: 0.07
+    category_bias: {Smartphones: 1.0, Laptops_current: 1.2, TVs: 1.5, Small_appliances: 1.3, Tools: 1.5, Toys_games: 1.1}
+    active_from: start
+  ecommerce_returns:
+    n_sources: 9
+    manifest_prob: 0.35
+    est_noise: 0.16
+    margin_mean: 0.18
+    margin_sd: 0.08
+    quality_sd: 0.06
+    reliability_sd: 0.09
+    category_bias: {Audio_wearables: 1.5, Apparel_shoes: 2.2, Beauty_health: 1.8, Gaming: 1.3, Home_decor: 1.2}
+    active_from: start
+  overstock_closeout:
+    n_sources: 5
+    manifest_prob: 0.80
+    est_noise: 0.09
+    margin_mean: 0.15
+    margin_sd: 0.06
+    quality_sd: 0.04
+    reliability_sd: 0.05
+    category_bias: {Small_appliances: 1.4, Home_decor: 1.6, Furniture: 1.8, Toys_games: 1.4, Tools: 1.2}
+    active_from: start
+  broker_liquidation:
+    n_sources: 6
+    manifest_prob: 0.15
+    est_noise: 0.24
+    margin_mean: 0.22
+    margin_sd: 0.12
+    quality_sd: 0.08
+    reliability_sd: 0.13
+    category_bias: {Low_value_bundles: 3.0, Laptops_older: 2.0, Toys_games: 1.5, Apparel_shoes: 1.3}
+    active_from: start
+  regional_marketplace:               # appears only after the national expansion
+    n_sources: 6
+    manifest_prob: 0.40
+    est_noise: 0.20
+    margin_mean: 0.17
+    margin_sd: 0.09
+    quality_sd: 0.07
+    reliability_sd: 0.10
+    category_bias: {Large_appliances: 2.8, Furniture: 2.8, TVs: 1.6, Home_decor: 1.5}
+    active_from: expansion
+categories:
+  Smartphones:       {share: 6,  retail_logmu: 6.48, retail_sigma: 0.50, base_mu: 0.62, dep_per_year: 0.14, lam0: 7.0, h0: 0.160, elast: 5.5, kappa: 0.030, decay_d: 0.0040, handling_min: 7.0,  refund_base: 0.06, weight_class: 0, reseller_share: 0.45, liq_rate: 0.22, photo_beta: 0.16}
+  Laptops_current:   {share: 5,  retail_logmu: 6.80, retail_sigma: 0.45, base_mu: 0.55, dep_per_year: 0.10, lam0: 5.5, h0: 0.100, elast: 5.0, kappa: 0.035, decay_d: 0.0030, handling_min: 10.0, refund_base: 0.08, weight_class: 1, reseller_share: 0.35, liq_rate: 0.18, photo_beta: 0.18}
+  Laptops_older:     {share: 4,  retail_logmu: 6.04, retail_sigma: 0.45, base_mu: 0.52, dep_per_year: 0.18, lam0: 2.4, h0: 0.030, elast: 3.5, kappa: 0.020, decay_d: 0.0020, handling_min: 10.0, refund_base: 0.09, weight_class: 1, reseller_share: 0.50, liq_rate: 0.10, photo_beta: 0.14}
+  TVs:               {share: 5,  retail_logmu: 6.25, retail_sigma: 0.60, base_mu: 0.50, dep_per_year: 0.09, lam0: 4.0, h0: 0.060, elast: 4.5, kappa: 0.030, decay_d: 0.0020, handling_min: 9.0,  refund_base: 0.07, weight_class: 3, reseller_share: 0.25, liq_rate: 0.12, photo_beta: 0.20}
+  Audio_wearables:   {share: 6,  retail_logmu: 4.94, retail_sigma: 0.60, base_mu: 0.52, dep_per_year: 0.12, lam0: 4.8, h0: 0.110, elast: 5.0, kappa: 0.040, decay_d: 0.0030, handling_min: 5.0,  refund_base: 0.07, weight_class: 0, reseller_share: 0.30, liq_rate: 0.12, photo_beta: 0.20}
+  Small_appliances:  {share: 8,  retail_logmu: 4.50, retail_sigma: 0.60, base_mu: 0.52, dep_per_year: 0.05, lam0: 3.4, h0: 0.070, elast: 4.0, kappa: 0.030, decay_d: 0.0010, handling_min: 6.0,  refund_base: 0.06, weight_class: 1, reseller_share: 0.30, liq_rate: 0.08, photo_beta: 0.22}
+  Large_appliances:  {share: 3,  retail_logmu: 6.62, retail_sigma: 0.55, base_mu: 0.66, dep_per_year: 0.04, lam0: 1.6, h0: 0.075, elast: 2.2, kappa: 0.015, decay_d: 0.0010, handling_min: 14.0, refund_base: 0.05, weight_class: 4, reseller_share: 0.50, liq_rate: 0.10, photo_beta: 0.20}
+  Tools:             {share: 7,  retail_logmu: 4.70, retail_sigma: 0.65, base_mu: 0.58, dep_per_year: 0.03, lam0: 3.8, h0: 0.080, elast: 4.2, kappa: 0.030, decay_d: 0.0010, handling_min: 5.0,  refund_base: 0.04, weight_class: 2, reseller_share: 0.45, liq_rate: 0.12, photo_beta: 0.22}
+  Toys_games:        {share: 8,  retail_logmu: 3.47, retail_sigma: 0.70, base_mu: 0.42, dep_per_year: 0.06, lam0: 2.6, h0: 0.060, elast: 3.8, kappa: 0.040, decay_d: 0.0020, handling_min: 3.5,  refund_base: 0.03, weight_class: 1, reseller_share: 0.40, liq_rate: 0.07, photo_beta: 0.20}
+  Apparel_shoes:     {share: 10, retail_logmu: 4.00, retail_sigma: 0.70, base_mu: 0.45, dep_per_year: 0.07, lam0: 2.2, h0: 0.045, elast: 3.2, kappa: 0.035, decay_d: 0.0030, handling_min: 3.0,  refund_base: 0.10, weight_class: 0, reseller_share: 0.50, liq_rate: 0.06, photo_beta: 0.30}
+  Home_decor:        {share: 8,  retail_logmu: 4.10, retail_sigma: 0.70, base_mu: 0.38, dep_per_year: 0.03, lam0: 1.5, h0: 0.1, elast: 1.6, kappa: 0.030, decay_d: 0.0010, handling_min: 4.0,  refund_base: 0.05, weight_class: 2, reseller_share: 0.40, liq_rate: 0.06, photo_beta: 0.28}
+  Furniture:         {share: 4,  retail_logmu: 5.77, retail_sigma: 0.60, base_mu: 0.42, dep_per_year: 0.03, lam0: 1.0, h0: 0.14, elast: 1.0, kappa: 0.020, decay_d: 0.0010, handling_min: 16.0, refund_base: 0.06, weight_class: 4, reseller_share: 0.35, liq_rate: 0.07, photo_beta: 0.24}
+  Beauty_health:     {share: 6,  retail_logmu: 3.33, retail_sigma: 0.60, base_mu: 0.53, dep_per_year: 0.05, lam0: 2.8, h0: 0.060, elast: 3.5, kappa: 0.050, decay_d: 0.0050, handling_min: 2.5,  refund_base: 0.04, weight_class: 0, reseller_share: 0.45, liq_rate: 0.05, photo_beta: 0.12}
+  Gaming:            {share: 4,  retail_logmu: 5.48, retail_sigma: 0.70, base_mu: 0.55, dep_per_year: 0.10, lam0: 5.2, h0: 0.090, elast: 5.0, kappa: 0.035, decay_d: 0.0025, handling_min: 6.0,  refund_base: 0.07, weight_class: 1, reseller_share: 0.40, liq_rate: 0.15, photo_beta: 0.18}
+  Low_value_bundles: {share: 6,  retail_logmu: 2.48, retail_sigma: 0.60, base_mu: 0.30, dep_per_year: 0.02, lam0: 1.2, h0: 0.020, elast: 2.5, kappa: 0.030, decay_d: 0.0005, handling_min: 2.5,  refund_base: 0.02, weight_class: 0, reseller_share: 0.60, liq_rate: 0.03, photo_beta: 0.03}

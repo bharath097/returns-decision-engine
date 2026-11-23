@@ -1,0 +1,219 @@
+# Metric layer: the governed definitions an analyst (or Claude answering report requests) uses.
+# Every metric has the same seven fields so a requester always learns what the number means, where it
+# comes from, and what was assumed.  Add metrics here; nothing else needs to change.
+defaults:
+  as_of: "2026-10-31"            # "today" for relative periods (the data cutoff)
+  week_starts: Monday
+  timezone: America/Los_Angeles
+  sales_date_field: close_date   # a sale belongs to the day the item finally closed, not the day it was listed
+  ask_when_ambiguous: true       # if false, use the documented default and state it
+date_fields:
+  close_date:   "the date the item's final disposition happened (auction end, fixed-price sale, or rollover end)"
+  listing_date: "the date the item was first listed"
+  receipt_date: "the date the lot arrived"
+levels:
+  category:    {column: category,    words: ["category", "categories", "product type", "department"]}
+  source:      {column: source_id,   words: ["source", "sources", "supplier", "vendor"]}
+  source_type: {column: source_type, words: ["source type", "supplier type"]}
+  channel:     {column: channel,     words: ["channel", "auction vs fixed", "fixed price vs auction"]}
+  month:       {column: "strftime(close_date, '%Y-%m')", words: ["month", "monthly", "by month"]}
+  week:        {column: "strftime(date_trunc('week', close_date), '%Y-%m-%d')", words: ["week", "weekly", "by week"]}
+  condition:   {column: condition,   words: ["condition"]}
+  brand_tier:  {column: brand_tier,  words: ["brand tier", "brand"]}
+metrics:
+  gross_sales:
+    label: Gross sales
+    synonyms: ["gross sales", "gross revenue", "gmv", "sales before refunds"]
+    family: sales
+    definition: "Sum of sale prices of items that sold, before refunds, fees and shipping."
+    sql: "sum(sale_price)"
+    where: "status = 'closed' and sold"
+    date_field: close_date
+    unit: usd
+    source_table: mart_item
+    caveats: "Counts refunded sales. Excludes fallback (liquidation) proceeds."
+    example: "What were gross sales last week by category?"
+  net_sales:
+    label: Net sales
+    synonyms: ["net sales", "net revenue before costs", "sales after refunds"]
+    family: sales
+    definition: "Sale prices of items that sold and were not refunded."
+    sql: "sum(case when refund_flag then 0 else sale_price end)"
+    where: "status = 'closed' and sold"
+    date_field: close_date
+    unit: usd
+    source_table: mart_item
+    caveats: "After refunds; before marketplace fees and outbound shipping."
+    example: "Net sales for Laptops_current in October 2026"
+  net_revenue:
+    label: Net revenue
+    synonyms: ["net revenue", "revenue after fees", "cash revenue"]
+    family: revenue
+    definition: "Net sales less marketplace fees and outbound shipping, plus fallback (liquidation) proceeds for unsold items."
+    sql: "sum(net_revenue)"
+    where: "status = 'closed'"
+    date_field: close_date
+    unit: usd
+    source_table: mart_item
+    caveats: "Before handling labor, holding cost and the lot's purchase cost."
+    example: "Net revenue by month this quarter"
+  contribution_margin:
+    label: Contribution margin
+    synonyms: ["contribution margin", "profit", "margin dollars", "profit dollars"]
+    family: profit
+    definition: "Net revenue less handling labor, holding cost, allocated lot price, allocated inbound freight and any custom cost components."
+    sql: "sum(contribution_margin)"
+    where: "status = 'closed'"
+    date_field: close_date
+    unit: usd
+    source_table: mart_item
+    caveats: "Lot price is allocated to items by retail share; allocation is accounting, not an item-level choice."
+    example: "Profit by source last month"
+  gross_recovery_rate:
+    label: Gross recovery rate (all listed)
+    synonyms: ["recovery", "recovery rate", "gross recovery", "recovery percentage"]
+    family: recovery
+    definition: "Sale price divided by retail value, summed over ALL closed items (unsold items count as zero)."
+    sql: "sum(sale_price) / nullif(sum(retail_value), 0)"
+    where: "status = 'closed'"
+    date_field: close_date
+    unit: pct
+    source_table: mart_item
+    caveats: "The headline measure. 'Recovery on sold items' is a different, higher number."
+    example: "What was recovery by category last month?"
+  recovery_on_sold:
+    label: Recovery on sold items
+    synonyms: ["recovery on sold", "recovery for sold items", "sold recovery"]
+    family: recovery
+    definition: "Sale price divided by retail value over items that sold only."
+    sql: "sum(sale_price) / nullif(sum(retail_value), 0)"
+    where: "status = 'closed' and sold"
+    date_field: close_date
+    unit: pct
+    source_table: mart_item
+    caveats: "Ignores unsold items; overstates what a listing earns on average."
+    example: "Recovery on sold items by source"
+  net_recovery_rate:
+    label: Net recovery rate (all listed)
+    synonyms: ["net recovery", "net recovery rate"]
+    family: recovery
+    definition: "Net revenue divided by retail value over all closed items."
+    sql: "sum(net_revenue) / nullif(sum(retail_value), 0)"
+    where: "status = 'closed'"
+    date_field: close_date
+    unit: pct
+    source_table: mart_item
+    caveats: "After refunds, fees, shipping; includes fallback value."
+    example: "Net recovery by category in Q3"
+  sell_through:
+    label: Sell-through
+    synonyms: ["sell through", "sell-through", "sold rate", "percent sold"]
+    family: volume
+    definition: "Share of closed items that sold."
+    sql: "avg(cast(sold as int))"
+    where: "status = 'closed'"
+    date_field: close_date
+    unit: pct
+    source_table: mart_item
+    caveats: "Open items are excluded until they close."
+    example: "Sell-through by channel last month"
+  items_sold:
+    label: Items sold
+    synonyms: ["items sold", "units sold", "number sold", "how many sold"]
+    family: volume
+    definition: "Count of items that sold."
+    sql: "count(*)"
+    where: "status = 'closed' and sold"
+    date_field: close_date
+    unit: count
+    source_table: mart_item
+    caveats: ""
+    example: "How many items sold yesterday?"
+  items_listed:
+    label: Items listed
+    synonyms: ["items listed", "listings", "new listings"]
+    family: volume
+    definition: "Count of items first listed in the period."
+    sql: "count(*)"
+    where: "1 = 1"
+    date_field: listing_date
+    unit: count
+    source_table: mart_item
+    caveats: "Uses the listing date, not the close date."
+    example: "Items listed last week"
+  avg_days_to_close:
+    label: Average days to close
+    synonyms: ["days to close", "days to sell", "time to sell", "how long to sell"]
+    family: speed
+    definition: "Average days from listing to final disposition for closed items."
+    sql: "avg(days_listed)"
+    where: "status = 'closed'"
+    date_field: close_date
+    unit: days
+    source_table: mart_item
+    caveats: ""
+    example: "Average days to close by category"
+  refund_rate:
+    label: Refund rate
+    synonyms: ["refund rate", "returns rate", "refunds"]
+    family: quality
+    definition: "Share of sold items that were refunded."
+    sql: "avg(cast(refund_flag as int))"
+    where: "status = 'closed' and sold"
+    date_field: close_date
+    unit: pct
+    source_table: mart_item
+    caveats: ""
+    example: "Refund rate by source type"
+  avg_sale_price:
+    label: Average sale price
+    synonyms: ["average sale price", "avg price", "average price"]
+    family: price
+    definition: "Average sale price of items that sold."
+    sql: "avg(sale_price)"
+    where: "status = 'closed' and sold"
+    date_field: close_date
+    unit: usd
+    source_table: mart_item
+    caveats: ""
+    example: "Average sale price by category last week"
+  acquisition_rate:
+    label: Acquisition rate
+    synonyms: ["acquisition rate", "cost rate", "price paid vs retail"]
+    family: sourcing
+    definition: "Lot price divided by the lot's retail value (what we paid per retail dollar)."
+    sql: "sum(allocated_lot_cost) / nullif(sum(retail_value), 0)"
+    where: "1 = 1"
+    date_field: receipt_date
+    unit: pct
+    source_table: mart_item
+    caveats: "Uses the lot's receipt date."
+    example: "Acquisition rate by source type"
+# Words that make a question ambiguous unless the requester also names a basis.
+ambiguous_terms:
+  - term: "sales"
+    needs: basis
+    options: {gross: gross_sales, net: net_sales}
+    question: "Do you want gross sales (before refunds) or net sales (after refunds)?"
+    default: gross
+  - term: "revenue"
+    needs: basis
+    options: {gross: gross_sales, net: net_revenue}
+    question: "Revenue could mean gross sales or net revenue after fees and shipping. Which one?"
+    default: net
+  - term: "recovery"
+    needs: basis
+    options: {all: gross_recovery_rate, sold: recovery_on_sold, net: net_recovery_rate}
+    question: "Recovery on all listed items (unsold counted as zero), only on items that sold, or net of fees and refunds?"
+    default: all
+  - term: "profit"
+    needs: none
+    options: {default: contribution_margin}
+    question: ""
+    default: default
+glossary:
+  gross vs net: "Gross is the sale price before refunds, fees and shipping. Net sales removes refunds. Net revenue also removes fees and shipping and adds fallback proceeds."
+  recovery: "Sale price divided by retail value. Items that never sell count as zero unless the question says 'on sold items'."
+  open item: "Not yet in a final state (auction running, or fixed-price still inside its window). Open items are excluded from every outcome metric."
+  lot: "A purchased batch of items from one source."
+  where_to_find_data: "Item facts: mart_item. Lots: mart_lot. Category by month: mart_category_month. Pilot arms: mart_pilot. Raw extracts: data/raw."

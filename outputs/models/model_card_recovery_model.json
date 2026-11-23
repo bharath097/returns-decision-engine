@@ -1,0 +1,68 @@
+{
+  "model": "Recovery rate (two-part LightGBM + conformal intervals)",
+  "generated": "2026-11-23 12:39",
+  "intended_use": "Predict gross recovery (sale price / retail) for items about to be listed; zeros included.",
+  "training_data": {
+    "train_rows": 39458,
+    "calibration_rows": 3832,
+    "test_rows": 14510,
+    "train_window": "to 2025-12-31",
+    "features": [
+      "retail_value",
+      "log_retail_value",
+      "match_confidence",
+      "product_age_years",
+      "weight_class",
+      "photo_count",
+      "receipt_to_listing_days",
+      "start_bid_pct",
+      "auction_duration_days",
+      "end_dow",
+      "end_hour",
+      "simultaneous_listings",
+      "listing_moy",
+      "listing_dow",
+      "acquisition_rate",
+      "category",
+      "brand_tier",
+      "condition",
+      "return_reason",
+      "source_id",
+      "source_type",
+      "region",
+      "manifest_flag",
+      "title"
+    ]
+  },
+  "metrics": {
+    "model": {
+      "mae": 0.16909748062430718,
+      "rmse": 0.24290962260632523,
+      "bias": -0.013828952057869716,
+      "dollar_mae_per_item": 37.88402358989432,
+      "weighted_total_error_pct": -0.02513275023508932
+    },
+    "category_median_baseline": {
+      "mae": 0.2094651012589157,
+      "rmse": 0.2807523091905092,
+      "bias": 0.02107627820163883,
+      "dollar_mae_per_item": 49.990009058507766,
+      "weighted_total_error_pct": 0.06500992235803249
+    },
+    "current_production_model": {
+      "mae": 0.18748356153179016,
+      "rmse": 0.2587859992732881,
+      "bias": 0.051924290158897726,
+      "dollar_mae_per_item": 42.94906356912474,
+      "weighted_total_error_pct": 0.12598655046792562
+    },
+    "auc_sold": 0.8208207265707267,
+    "interval_coverage": 0.7891798759476223,
+    "interval_target": 0.8
+  },
+  "known_limitations": [
+    "Trained on SIMULATED data with known truth; real performance must be re-measured.",
+    "Auction items only; fixed-price items use the sale-timing model.",
+    "Interval coverage drifts down after the June 2026 expansion (new source type)."
+  ]
+}

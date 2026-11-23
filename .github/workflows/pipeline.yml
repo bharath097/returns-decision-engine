@@ -1,0 +1,54 @@
+name: pipeline
+
+on:
+  workflow_dispatch:          # run it by hand from the Actions tab
+  schedule:
+    - cron: "0 7 * * 1"       # every Monday 07:00 UTC
+  push:
+    branches: [main]
+    paths-ignore:             # do not re-run when the pipeline's own output is committed
+      - "outputs/**"
+      - "docs/site/**"
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: |
+          pip install -r requirements.txt pillow
+          pip install -e .
+
+      - name: Run the pipeline (simulate, build, tests, models, report)
+        run: make all
+
+      - name: Run the tests
+        run: make test
+
+      - name: Rebuild the website
+        run: |
+          python site_builder/build_site.py
+          python site_builder/build_report.py
+
+      - name: Commit refreshed results
+        run: |
+          git config user.name "pipeline-bot"
+          git config user.email "pipeline-bot@users.noreply.github.com"
+          git add outputs docs/site
+          if git diff --cached --quiet; then
+            echo "nothing changed"
+          else
+            git commit -m "Refresh pipeline results and website [skip ci]"
+            git push
+          fi

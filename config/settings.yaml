@@ -1,0 +1,90 @@
+# =====================================================================
+#  SETTINGS  --  every adjustable business input and modeling choice.
+#  Values marked ASK are things only BuyWander knows; the numbers here are
+#  clearly-labeled placeholders. Change them here; nothing is hard-coded.
+# =====================================================================
+project:
+  name: "Recovery Lab"
+  data_banner: "SIMULATED DATA - NOT BUYWANDER DATA. All figures are illustrative."
+paths:
+  raw_dir: data/raw
+  warehouse: data/warehouse.duckdb
+  outputs: outputs
+  user_inputs: data/user_inputs
+  sql_dir: sql
+splits:                              # time-based splits on listing date
+  data_cutoff: "2026-10-31"          # last day of data; items not final by then are OPEN (censored)
+  train_end: "2025-12-31"
+  calibration_end: "2026-02-28"      # calibration set = (train_end, calibration_end]; test after
+  grouped_cv_folds: 5
+# The randomized fixed-price pilot only starts 2025-11-01 (holiday season), so the pilot-based models
+# (sale timing, uplift) use their own time split rather than the item-level one above.
+pilot_splits:
+  train_end: "2026-03-31"
+  calibration_end: "2026-05-15"
+
+economics:                           # ASK: confirm each with the business
+  labor_cost_per_minute: 0.62        # loaded US warehouse labor
+  fee_pct: 0.035                     # payment + marketplace fee, % of sale
+  fee_fixed: 0.30                    # fixed fee per sale
+  shipping_cost_by_weight_class: [3.5, 7.0, 14.0, 28.0, 65.0]   # shipping subsidy per sale
+  holding_cost_per_day_by_weight_class: [0.03, 0.06, 0.12, 0.30, 0.80]  # shelf space + handling per item-day
+  cost_of_capital_annual: 0.12       # on the purchase cost tied up in inventory
+  liquidation_cost_pct: 0.10         # cost of disposing of an unsold item, % of fallback value
+  rollover_days: 21                  # unsold fixed-price items roll into an auction after this many days
+  auction_close_days_default: 3
+  # Add your own cost lines here (see docs/EXTENDING.md). Example (disabled by default):
+  cost_components: []
+  #  - {name: pallet_wrap, kind: per_item, amount: 0.35, applies_to: "1=1"}
+  #  - {name: oversize_handling, kind: per_item, amount: 4.0, applies_to: "weight_class >= 3"}
+  #  - {name: payment_dispute_reserve, kind: pct_of_sale, amount: 0.004, applies_to: "1=1"}
+decisions:
+  premium_grid: [0.10, 0.20, 0.30]
+  confidence_level: 0.95
+  target_power: 0.80
+  lot_target_margin: 0.12            # target profit as a share of expected net recovery
+  risk_buffer_k: 0.80                # bid ceiling subtracts k * sigma_source
+  min_item_value_floor: 0.0          # minimum expected net value worth handling (computed per category)
+  photo_extra_count: 3
+  markdown_price_grid: [0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1.00, 1.05, 1.10, 1.15, 1.20, 1.30]
+  dp_horizon_days: 21
+  scorecard_prior_strength: 8
+  scorecard_weights:                 # points system; weights must sum to 1
+    profitability: 0.40              # shrunk profit per retail dollar
+    goods_quality: 0.20              # shrunk net value per retail dollar before price
+    reliability: 0.15                # lot-to-lot spread of profit (lower is better)
+    manifest_accuracy: 0.15          # how well the manifest retail total matches what arrives
+    speed: 0.10                      # average days to close (lower is better)
+  scorecard_tiers: {A: 75, B: 50, C: 25}
+  photo_minutes_per_extra_photo: 0.6 # measured by the time study; used only if the data cannot show it
+  sampling_minutes_per_item: 3.0     # inspecting an item before bidding on its lot        # pseudo-lots for empirical-Bayes shrinkage
+models:
+  random_state: 17
+  recovery:
+    clip_low: 0.005
+    clip_high: 0.99
+    interval_alpha: 0.20             # 80% prediction interval
+    lgbm_classifier: {n_estimators: 450, learning_rate: 0.04, num_leaves: 31, min_child_samples: 40, subsample: 0.85, subsample_freq: 1, colsample_bytree: 0.85, reg_lambda: 2.0, verbose: -1}
+    lgbm_regressor:  {n_estimators: 550, learning_rate: 0.04, num_leaves: 31, min_child_samples: 40, subsample: 0.85, subsample_freq: 1, colsample_bytree: 0.85, reg_lambda: 2.0, verbose: -1}
+    lgbm_quantile:   {n_estimators: 350, learning_rate: 0.05, num_leaves: 15, min_child_samples: 60, subsample: 0.85, subsample_freq: 1, colsample_bytree: 0.85, verbose: -1}
+    text_svd_components: 8
+  hazard:
+    horizon_days: 21
+    lgbm: {n_estimators: 350, learning_rate: 0.05, num_leaves: 31, min_child_samples: 100, subsample: 0.8, subsample_freq: 1, colsample_bytree: 0.85, reg_lambda: 2.0, verbose: -1}
+    max_person_period_rows: 900000
+  uplift:
+    lgbm: {n_estimators: 300, learning_rate: 0.04, num_leaves: 15, min_child_samples: 80, subsample: 0.85, subsample_freq: 1, colsample_bytree: 0.85, reg_lambda: 3.0, verbose: -1}
+    min_horizon_complete_days: 28
+  match:
+    lgbm: {n_estimators: 250, learning_rate: 0.05, num_leaves: 15, min_child_samples: 20, verbose: -1}
+  monitoring:
+    psi_warn: 0.10
+    psi_alert: 0.25
+    mae_degradation_alert: 0.20      # relative increase vs. validation MAE
+    min_segment_items: 150
+metrics_layer:
+  week_starts_on: monday
+  timezone: "America/Los_Angeles"
+  date_semantics:
+    default_sales_date: auction_close_date
+    options: [auction_close_date, listing_date, ship_date]
