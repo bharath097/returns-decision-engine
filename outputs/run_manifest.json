@@ -1,6 +1,6 @@
 {
-  "run_at_utc": "2026-11-23T19:23:59Z",
-  "git_sha": "8b905f4979d19538c6943a9d8438070b8d2b6f76",
+  "run_at_utc": "2026-11-23T19:27:03Z",
+  "git_sha": "eaff5d73dba45c2ec54b86d0fb9587dadd754b7e",
   "config_hash": "4bdc7b1df83a78cf",
   "raw_data_hash": "ad25eede08a37ed8",
   "warehouse_rows": {
@@ -10,7 +10,7 @@
   "stages": [
     {
       "name": "warehouse",
-      "seconds": 6.9,
+      "seconds": 6.2,
       "tables": [
         "calculations",
         "data_profile",
@@ -22,7 +22,7 @@
     },
     {
       "name": "recovery_model",
-      "seconds": 26.1,
+      "seconds": 25.8,
       "tables": [
         "interval_coverage_by_category",
         "recovery_calibration",
@@ -39,7 +39,7 @@
     },
     {
       "name": "anchor_impact",
-      "seconds": 3.1,
+      "seconds": 3.0,
       "tables": [
         "pricing_anchor_impact"
       ],
@@ -48,7 +48,7 @@
     },
     {
       "name": "sale_timing",
-      "seconds": 14.5,
+      "seconds": 13.6,
       "tables": [
         "hazard_calibration",
         "km_by_premium",
@@ -59,7 +59,7 @@
     },
     {
       "name": "channel_and_waiting",
-      "seconds": 3.8,
+      "seconds": 3.6,
       "tables": [
         "breakeven_table",
         "pilot_ate",
@@ -105,7 +105,7 @@
     },
     {
       "name": "match_quality",
-      "seconds": 2.1,
+      "seconds": 2.0,
       "tables": [
         "match_review_gain"
       ],
@@ -114,7 +114,7 @@
     },
     {
       "name": "decision_engine",
-      "seconds": 8.4,
+      "seconds": 8.1,
       "tables": [
         "intake_cards",
         "value_levers"
@@ -173,5 +173,5 @@
     "dq_warnings": 2
   },
   "tables_written": 47,
-  "total_seconds": 69.2
+  "total_seconds": 66.6
 }

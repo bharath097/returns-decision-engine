@@ -1,14 +1,14 @@
 {
   "timings_seconds": {
-    "warehouse": 6.9,
-    "recovery_model": 26.1,
-    "anchor_impact": 3.1,
-    "sale_timing": 14.5,
-    "channel_and_waiting": 3.8,
+    "warehouse": 6.2,
+    "recovery_model": 25.8,
+    "anchor_impact": 3.0,
+    "sale_timing": 13.6,
+    "channel_and_waiting": 3.6,
     "effort_rule": 0.1,
     "sources_and_lots": 4.1,
-    "match_quality": 2.1,
-    "decision_engine": 8.4,
+    "match_quality": 2.0,
+    "decision_engine": 8.1,
     "monitoring": 0.1,
     "metric_layer": 0.0
   },
